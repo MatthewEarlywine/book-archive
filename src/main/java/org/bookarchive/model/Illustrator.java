@@ -1,4 +1,4 @@
-package org.bookarchive;
+package org.bookarchive.model;
 
 public class Illustrator {
 
