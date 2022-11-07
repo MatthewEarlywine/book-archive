@@ -1,40 +1,16 @@
 package org.bookarchive.controller;
 
 import org.bookarchive.model.Book;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/")
 public class ListController {
-	private Book model;
-
-	public ListController(Book model) {
-		this.model = model;
-	}
-
-	public String getTitle() {
-		return model.getTitle();
-	}
-
-	public void setTitle(String title) {
-		model.setTitle(title);
-	}
-
-	public String getAuthor() {
-		return model.getAuthor();
-	}
-
-	public void setAuthor(String author) {
-		model.setAuthor(author);
-	}
-
-	public String getGenre() {
-		return model.getGenre();
-	}
-
-	public void setGenre(String genre) {
-		model.setGenre(genre);
-	}
+	private Book book;
 
 	public void updateView() {
-		printBookInfo(model.getTitle(), model.getGenre(), model.getAuthor());
+		printBookInfo(book.getTitle(), book.getGenre(), book.getAuthor());
 	}
 
 	private void printBookInfo(String title, String genre, String author) {
