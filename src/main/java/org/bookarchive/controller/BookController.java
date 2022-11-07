@@ -1,15 +1,12 @@
 package org.bookarchive.controller;
 
 import org.bookarchive.model.Book;
-import org.bookarchive.view.BookList;
 
 public class BookController {
 	private Book model;
-	private BookList view;
 
-	public BookController(Book model, BookList view) {
+	public BookController(Book model) {
 		this.model = model;
-		this.view = view;
 	}
 
 	public String getTitle() {
@@ -37,6 +34,11 @@ public class BookController {
 	}
 
 	public void updateView() {
-		view.printBookInfo(model.getTitle(), model.getGenre(), model.getAuthor());
+		printBookInfo(model.getTitle(), model.getGenre(), model.getAuthor());
+	}
+
+	private void printBookInfo(String title, String genre, String author) {
+		// TODO Auto-generated method stub
+
 	}
 }
