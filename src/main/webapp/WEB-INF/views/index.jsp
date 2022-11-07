@@ -6,8 +6,8 @@
 <body class="text-center">
 	<form action="login" method="POST">
 		<div align="center">
-			<h2>GameRate</h2><br>
-			<p>Username:</p>
+			<h2>Book Archive</h2><br>
+			<p>User Name:</p>
 			<input type="text" name="username"><br>
 			<p>Password:</p>
 			<input type="password" name ="password"><br><br>

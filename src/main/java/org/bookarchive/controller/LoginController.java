@@ -25,7 +25,7 @@ public class LoginController {
 		if (login != null && (login.getUsername() != null && !login.getUsername().equals(""))
 				&& (login.getPassword() != null && !login.getPassword().equals(""))) {
 			model.addAttribute("user", login.getUsername().toUpperCase());
-			return "home";
+			return "bookListHome";
 		} else {
 			model.addAttribute("error", "Please enter username and password");
 			return "index";
