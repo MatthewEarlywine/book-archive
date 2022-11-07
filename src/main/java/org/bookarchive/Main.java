@@ -1,13 +1,13 @@
 package org.bookarchive;
 
-import org.bookarchive.controller.BookController;
+import org.bookarchive.controller.ListController;
 import org.bookarchive.model.Book;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Book model = retrieveBook();
-		BookController controller = new BookController(model);
+		ListController controller = new ListController(model);
 		controller.updateView();
 
 		controller.setGenre("Horror");

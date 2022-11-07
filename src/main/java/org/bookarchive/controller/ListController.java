@@ -2,10 +2,10 @@ package org.bookarchive.controller;
 
 import org.bookarchive.model.Book;
 
-public class BookController {
+public class ListController {
 	private Book model;
 
-	public BookController(Book model) {
+	public ListController(Book model) {
 		this.model = model;
 	}
 
