@@ -2,19 +2,23 @@ package org.bookarchive.controller;
 
 import org.bookarchive.model.Book;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-@RequestMapping("/")
 public class ListController {
 	private Book book;
 
-	public void updateView() {
-		printBookInfo(book.getTitle(), book.getGenre(), book.getAuthor());
+	@GetMapping("/list")
+	public String getBookListHome() {
+		return "bookListHome";
 	}
 
-	private void printBookInfo(String title, String genre, String author) {
-		// TODO Auto-generated method stub
-
-	}
+//	public void updateView() {
+//		printBookInfo(book.getTitle(), book.getGenre(), book.getAuthor());
+//	}
+//
+//	private void printBookInfo(String title, String genre, String author) {
+//		// TODO Auto-generated method stub
+//
+//	}
 }

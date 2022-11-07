@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>My Favorite Books</title>
+	<title>Book Archive</title>
 </head>
 
 <body>
