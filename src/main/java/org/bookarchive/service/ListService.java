@@ -20,6 +20,6 @@ public interface ListService {
 
 	void deleteAllBooks();
 
-	public boolean isGameExist(Book book);
+	public boolean doesBookExist(Book book);
 
 }

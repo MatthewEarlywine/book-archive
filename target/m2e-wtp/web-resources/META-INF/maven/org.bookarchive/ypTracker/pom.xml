@@ -84,11 +84,15 @@
 
 
 		<!-- Logging -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-			<scope>runtime</scope>
+		<dependency>                             
+		    <groupId>org.slf4j</groupId>         
+		    <artifactId>slf4j-api</artifactId>   
+		    <version>1.7.30</version>  
+		</dependency> 
+		<dependency>                             
+		    <groupId>org.slf4j</groupId>         
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>1.7.30</version>  
 		</dependency>
 
 		<!-- JSR-330 for @Inject -->
