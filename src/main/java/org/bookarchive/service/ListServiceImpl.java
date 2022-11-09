@@ -41,14 +41,15 @@ public class ListServiceImpl implements ListService {
 		return null;
 	}
 
-	public void saveBook(Book book) {
+	public Book saveBook(Book book) {
 		book.setId(counter.incrementAndGet());
 		books.add(book);
+		return book;
 	}
 
-	public void updateBook(Book book) {
+	public Book updateBook(Book book) {
 		int index = books.indexOf(book);
-		books.set(index, book);
+		return books.set(index, book);
 	}
 
 	public void deleteBookById(long id) {

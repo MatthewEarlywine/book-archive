@@ -1,26 +1,21 @@
 package org.bookarchive.controller;
 
-import java.util.List;
-
 import org.bookarchive.model.Book;
 import org.bookarchive.service.ListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
-@RequestMapping(value = "/list/")
+@RequestMapping(value = "/archive")
 public class ListController {
 
 	Logger logger = LoggerFactory.getLogger(ListController.class);
@@ -28,78 +23,62 @@ public class ListController {
 	@Autowired
 	private ListService listService;
 
-	@GetMapping
-	public ResponseEntity<?> listAllBooks() {
-		List<Book> books = listService.findAllBooks();
-		if (books.isEmpty()) {
-			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+	@GetMapping(value = "/getAllBooks")
+	public String getAllBooks(Model model) {
+		model.addAttribute("books", listService.findAllBooks());
+		// model.addAttribute("displayheader", true);
+
+		return "bookListHome";
 	}
 
-	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBook(@PathVariable("id") long id) {
-		logger.debug("Fetching Book with id " + id);
-		Book book = listService.findById(id);
-		if (book == null) {
-			logger.debug("Book with id " + id + " not found");
-			return new ResponseEntity<String>("No Book With ID: " + id + " Found", HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<Book>(book, HttpStatus.OK);
+	@GetMapping(value = "/addBook")
+	public String addBookView(Model model) {
+		model.addAttribute("book", new Book());
+		// model.addAttribute("displayheader", true);
+		return "addBook";
 	}
 
-	@PostMapping
-	public ResponseEntity<?> createBook(@RequestBody Book book) {
-		logger.debug("Creating Book " + book.getTitle());
+	@PostMapping(value = "/addBook")
+	public RedirectView addBook(@ModelAttribute("book") Book book, RedirectAttributes redirectAttributes) {
+		Book bookAdded = listService.saveBook(book);
+		if (bookAdded != null) {
+			redirectAttributes.addFlashAttribute("savedBook", bookAdded);
+			redirectAttributes.addFlashAttribute("addBookSuccess", true);
 
-		if (listService.doesBookExist(book)) {
-			logger.debug("A Book with title " + book.getTitle() + " already exist");
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		} else {
+			redirectAttributes.addFlashAttribute("bookExists", true);
+			redirectAttributes.addFlashAttribute("addBookSuccess", false);
+			redirectAttributes.addFlashAttribute("savedBook", book);
+
 		}
-
-		listService.saveBook(book);
-		return new ResponseEntity<Book>(book, HttpStatus.CREATED);
+		final RedirectView redirectView = new RedirectView("/archive/addBook", true);
+		// redirectAttributes.addFlashAttribute("displayheader", true);
+		return redirectView;
 	}
 
-	@PutMapping(value = "{id}")
-	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
-		logger.debug("Updating Book " + id);
-
-		Book currentBook = listService.findById(id);
-
-		if (currentBook == null) {
-			logger.debug("Book with id " + id + " not found");
-			return new ResponseEntity<String>("No Book With ID: " + id + " Found", HttpStatus.NO_CONTENT);
-		}
-
-		currentBook.setTitle(book.getTitle());
-		currentBook.setAuthor(book.getAuthor());
-		currentBook.setGenre(book.getGenre());
-
-		listService.updateBook(currentBook);
-		return new ResponseEntity<Book>(currentBook, HttpStatus.OK);
+	@GetMapping(value = "/updateBook")
+	public String updateBookView(Model model) {
+		model.addAttribute("book", new Book());
+		// model.addAttribute("displayheader", true);
+		return "updateBook";
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteBook(@PathVariable("id") long id) {
-		logger.debug("Fetching & Deleting Book with id " + id);
+	@PostMapping(value = "/updateBook")
+	public RedirectView updateBook(@ModelAttribute("book") Book book, RedirectAttributes redirectAttributes) {
+		Book bookUpdated = listService.updateBook(book);
+		if (bookUpdated != null) {
+			redirectAttributes.addFlashAttribute("updatedBook", bookUpdated);
+			redirectAttributes.addFlashAttribute("updateBookSuccess", true);
 
-		Book book = listService.findById(id);
-		if (book == null) {
-			logger.debug("Unable to delete. Book with id " + id + " not found");
-			return new ResponseEntity<String>("No Book With ID: " + id + " Found", HttpStatus.NO_CONTENT);
+		} else {
+			redirectAttributes.addFlashAttribute("bookDoesNotExist", true);
+			redirectAttributes.addFlashAttribute("updateBookSuccess", false);
+			redirectAttributes.addFlashAttribute("updatedBook", book);
+
 		}
-
-		listService.deleteBookById(id);
-		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
-	}
-
-	@RequestMapping(method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteAllBooks() {
-		logger.debug("Deleting All Books");
-
-		listService.deleteAllBooks();
-		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
+		final RedirectView redirectView = new RedirectView("/archive/updateBook", true);
+		// redirectAttributes.addFlashAttribute("displayheader", true);
+		return redirectView;
 	}
 
 }

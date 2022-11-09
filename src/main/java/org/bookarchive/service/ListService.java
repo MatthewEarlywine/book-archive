@@ -10,9 +10,9 @@ public interface ListService {
 
 	Book findByTitle(String title);
 
-	void saveBook(Book book);
+	Book saveBook(Book book);
 
-	void updateBook(Book book);
+	Book updateBook(Book book);
 
 	void deleteBookById(long id);
 
