@@ -6,12 +6,12 @@ public class BookListInitializer extends AbstractAnnotationConfigDispatcherServl
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { BookListConfig.class };
+		return new Class[] {};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return null;
+		return new Class[] { BookListConfig.class };
 	}
 
 	@Override

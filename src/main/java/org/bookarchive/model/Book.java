@@ -7,6 +7,10 @@ public class Book {
 	private String author;
 	private String genre;
 
+	public Book() {
+		id = (long) 0;
+	}
+
 	public Book(Long id, String title, String author, String genre) {
 		this.id = id;
 		this.title = title;

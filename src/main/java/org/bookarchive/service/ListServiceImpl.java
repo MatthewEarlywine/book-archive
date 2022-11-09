@@ -68,7 +68,7 @@ public class ListServiceImpl implements ListService {
 		books.clear();
 	}
 
-	private static List<Book> listStarterBooks() {
+	public static List<Book> listStarterBooks() {
 		List<Book> books = new ArrayList<Book>();
 		books.add(new Book(counter.incrementAndGet(), "Frankenstein", "Mary Shelly", "Horror"));
 		books.add(new Book(counter.incrementAndGet(), "Exalted", "Onyx Path Publishing", "RPG"));

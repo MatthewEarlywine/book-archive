@@ -6,19 +6,19 @@ import org.bookarchive.model.Book;
 
 public interface ListService {
 
-	Book findById(long id);
+	public Book findById(long id);
 
-	Book findByTitle(String title);
+	public Book findByTitle(String title);
 
-	void saveBook(Book book);
+	public void saveBook(Book book);
 
-	void updateBook(Book book);
+	public void updateBook(Book book);
 
-	void deleteBookById(long id);
+	public void deleteBookById(long id);
 
-	List<Book> findAllBooks();
+	public List<Book> findAllBooks();
 
-	void deleteAllBooks();
+	public void deleteAllBooks();
 
 	public boolean doesBookExist(Book book);
 
