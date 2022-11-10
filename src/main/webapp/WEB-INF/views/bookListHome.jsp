@@ -1,10 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Book Archive</title>
+
 </head>
 
 <body>
+
 <div align="center">
 	<h2>Complete Book List</h2><BR>
 	<p> This is a test String: ${test} </p>
@@ -14,18 +18,20 @@
 			<th>Title</th>
 			<th>Author</th>
 			<th>Genre</th>
-			<th>Rialto</th>
 		</tr>
-		<c:forEach items="books" var="books">
+		<c:forEach  var="book" items="${books}">
 			<tr>
-				<td><c:out value="${book.id}"/></td>
-				<td><c:out value="${book.id}"/></td>
-				<td><c:out value="${book.id}"/></td>
-				<td><c:out value="${book.id}"/></td>
-				<td>Rialto</td>
+				<td>${book.id}</td>
+				<td>${book.title}</td>
+				<td>${book.author}</td>
+				<td>${book.genre}</td>
 			</tr>
 		</c:forEach>
 	</table>
 </div>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+      <script src="/static/js/app.js"></script>
+      <script src="/static/js/service/listService.js"></script>
+      <script src="/static/js/controller/listController.js"></script>
 </body>
 </html>
