@@ -10,15 +10,22 @@
 <body>
 
 <div align="center">
-	<h2>Welcome to the Archive</h2><BR>
+	<h2>Add a new book to the Archive</h2><BR>
+	
+	
+    <form action="/favoritebooks/addBook" method="post" modelAttribute="book" align="center">
+        <label>Title:  <input type="text" name="title" required="required"/></label>
+        <label>Author:  <input type="text" name="author" required="required"/></label>
+        <label>Genre:  <input type="text" name="genre" /></label>
+        <input type="submit" value="submit"/>
+        <p style="color: red">${error}</p>
+    </form>
+	
 	
 	<a href="/favoritebooks">
 	<button>See our list of books</button>
 	</a>
 	
-	<a href="/favoritebooks/addBook">
-	<button>Add a new book</button>
-	</a>
 </div>
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
       <script src="/static/js/app.js"></script>

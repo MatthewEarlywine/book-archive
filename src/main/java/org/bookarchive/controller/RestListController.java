@@ -50,7 +50,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/favoritebooks/{id}")
+	@PostMapping(value = "/favoritebooks/addBook")
 	public ResponseEntity<?> createBook(@RequestBody Book book, UriComponentsBuilder ucBuilder) {
 		logger.debug("Creating Book " + book.getTitle());
 
@@ -62,7 +62,7 @@ public class RestListController {
 		listService.saveBook(book);
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/list/{id}").buildAndExpand(book.getId()).toUri());
+		headers.setLocation(ucBuilder.path("/favoritebooks/{id}").buildAndExpand(book.getId()).toUri());
 		return new ResponseEntity<Book>(book, HttpStatus.CREATED);
 	}
 
