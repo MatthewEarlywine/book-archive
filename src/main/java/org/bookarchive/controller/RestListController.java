@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping(value = "/list/")
+@RequestMapping(value = "/favoritebooks/")
 public class RestListController {
 
 	Logger logger = LoggerFactory.getLogger(RestListController.class);
@@ -39,7 +39,7 @@ public class RestListController {
 		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/list/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/favoritebooks/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBook(@PathVariable("id") long id) {
 		logger.debug("Fetching Book with id " + id);
 		Book book = listService.findById(id);
@@ -50,7 +50,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/list/{id}")
+	@PostMapping(value = "/favoritebooks/{id}")
 	public ResponseEntity<?> createBook(@RequestBody Book book, UriComponentsBuilder ucBuilder) {
 		logger.debug("Creating Book " + book.getTitle());
 
@@ -66,7 +66,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.CREATED);
 	}
 
-	@PutMapping(value = "/list/{id}")
+	@PutMapping(value = "/favoritebooks/{id}")
 	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
 		logger.debug("Updating Book " + id);
 
@@ -85,7 +85,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(currentBook, HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "/list/{id}")
+	@DeleteMapping(value = "/favoritebooks/{id}")
 	public ResponseEntity<?> deleteBook(@PathVariable("id") long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
 
@@ -99,7 +99,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 
-	@DeleteMapping(value = "/list/")
+	@DeleteMapping
 	public ResponseEntity<Book> deleteAllBooks() {
 		logger.debug("Deleting All Books");
 

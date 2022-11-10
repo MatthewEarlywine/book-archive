@@ -5,7 +5,7 @@ angular.module('myApp').factory('ListService', ListServiceFactory)
 ListServiceFactory.$inject = ['$http', '$log']
 
 function ListServiceFactory($http, $log) {
-	var REST_SERVICE_URI = 'http://localhost:8081/getList/';
+	var REST_SERVICE_URI = 'http://localhost:8081/favoritebooks/';
 
     var factory = {
         fetchAllBooks: fetchAllBooks,

@@ -13,10 +13,10 @@ public class ListController {
 
 	List<Book> books = ListServiceImpl.listStarterBooks();
 
-	@GetMapping("/getList")
+	@GetMapping("/favoritebooks")
 	public ModelAndView getBookListHome() {
 
-		ModelAndView mv = new ModelAndView("bookListHome");
+		ModelAndView mv = new ModelAndView("bookList");
 
 		mv.addObject("test", "Testing");
 		mv.addObject("books", books);
