@@ -18,11 +18,10 @@ public class ListController {
 
 	private AtomicLong counter = new AtomicLong();
 	List<Book> books = ListServiceImpl.listStarterBooks();
+	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
 	public ModelAndView getBookListHome() {
-
-		ModelAndView mv = new ModelAndView("bookList");
 
 		mv.addObject("test", "Testing");
 		mv.addObject("books", books);
@@ -37,8 +36,7 @@ public class ListController {
 	}
 
 	@PostMapping("/addBook")
-	public String submit(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
-		ModelAndView abp = new ModelAndView("bookList");
+	public ModelAndView submit(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
 
 		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
 				&& (book.getAuthor() != null && !book.getAuthor().equals(""))) {
@@ -52,11 +50,11 @@ public class ListController {
 			String genre = book.getGenre();
 
 			books.add(new Book(counter.incrementAndGet(), title, author, genre));
-			abp.addObject("book", books);
-			return "abp";
+			mv.addObject("book", books);
+			return mv;
 		} else {
-			abp.addObject("error", "Both Title and Author of book are required.");
-			return "addBook";
+			mv.addObject("error", "Both Title and Author of book are required.");
+			return getAddBookPage;
 		}
 
 	}

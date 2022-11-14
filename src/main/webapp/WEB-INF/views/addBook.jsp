@@ -17,7 +17,9 @@
         <label>Title:  <input type="text" name="title" required="required"/></label>
         <label>Author:  <input type="text" name="author" required="required"/></label>
         <label>Genre:  <input type="text" name="genre" /></label>
+        <a href="/favoritebooks">
         <input type="submit" value="submit"/>
+        </a>
         <p style="color: red">${error}</p>
     </form>
 	
