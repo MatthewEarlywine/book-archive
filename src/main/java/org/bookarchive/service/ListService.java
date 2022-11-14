@@ -10,7 +10,7 @@ public interface ListService {
 
 	public Book findByTitle(String title);
 
-	public void saveBook(Book book);
+	public List<Book> saveBook(Book book);
 
 	public void updateBook(Book book);
 
