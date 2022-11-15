@@ -52,6 +52,12 @@ public class ListController {
 				book.setGenre(book.getGenre());
 			}
 
+			if (book.getIllustrator() == null) {
+				book.setIllustrator("");
+			} else {
+				book.setIllustrator(book.getIllustrator());
+			}
+
 			books = listService.saveBook(book);
 
 			mv.addObject("book", books);

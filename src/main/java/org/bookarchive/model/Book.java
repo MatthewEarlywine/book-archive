@@ -5,16 +5,18 @@ public class Book {
 	private Long id;
 	private String title;
 	private String author;
+	private String illustrator;
 	private String genre;
 
 	public Book() {
 		id = (long) 0;
 	}
 
-	public Book(Long id, String title, String author, String genre) {
+	public Book(Long id, String title, String author, String illustrator, String genre) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
+		this.illustrator = illustrator;
 		this.genre = genre;
 	}
 
@@ -40,6 +42,14 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getIllustrator() {
+		return illustrator;
+	}
+
+	public void setIllustrator(String illustrator) {
+		this.illustrator = illustrator;
 	}
 
 	public String getGenre() {
@@ -74,7 +84,8 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", genre=" + genre + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", illustrator=" + illustrator
+				+ ", genre=" + genre + "]";
 	}
 
 }

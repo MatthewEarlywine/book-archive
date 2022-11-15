@@ -14,14 +14,15 @@
 	
 	
     <form action="/favoritebooks/addBook" method="post" modelAttribute="book" align="center">
-        <label>Title:  <input type="text" name="title" required="required"/></label>
-        <label>Author:  <input type="text" name="author" required="required"/></label>
-        <label>Genre:  <input type="text" name="genre" /></label>
+        <label>Title:  <input type="text" name="title" required="required"/></label><br><br>
+        <label>Author:  <input type="text" name="author" required="required"/></label><br><br>
+        <label>Illustrator:  <input type="text" name="illustrator" /></label><br><br>
+        <label>Genre:  <input type="text" name="genre" /></label><br><br>
         <a href="/favoritebooks">
-        <input type="submit" value="submit"/>
+        <input type="submit" value="Submit new book"/>
         </a>
         <p style="color: red">${error}</p>
-    </form>
+    </form><br>
 	
 	
 	<a href="/favoritebooks">

@@ -71,9 +71,9 @@ public class ListServiceImpl implements ListService {
 
 	public static List<Book> listStarterBooks() {
 		List<Book> books = new ArrayList<Book>();
-		books.add(new Book(counter.incrementAndGet(), "Frankenstein", "Mary Shelly", "Horror"));
-		books.add(new Book(counter.incrementAndGet(), "Exalted", "Onyx Path Publishing", "RPG"));
-		books.add(new Book(counter.incrementAndGet(), "After Man", "Dougal Dixon", "Science Fiction"));
+		books.add(new Book(counter.incrementAndGet(), "Frankenstein", "Mary Shelly", "", "Horror"));
+		books.add(new Book(counter.incrementAndGet(), "Exalted", "Onyx Path Publishing", "", "RPG"));
+		books.add(new Book(counter.incrementAndGet(), "After Man", "Dougal Dixon", "", "Science Fiction"));
 
 		return books;
 	}

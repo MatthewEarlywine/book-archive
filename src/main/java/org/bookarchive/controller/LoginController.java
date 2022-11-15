@@ -22,6 +22,12 @@ public class LoginController {
 
 	@PostMapping(value = "/login")
 	public String submit(Model model, @ModelAttribute("login") LoginId login) {
+
+		if ((login.getUsername().length() < 8) || (login.getPassword().length() < 8)) {
+			model.addAttribute("error", "Both Username and Password must each be at least six (8) characters long");
+			return "index";
+		}
+
 		if (login != null && (login.getUsername() != null && !login.getUsername().equals(""))
 				&& (login.getPassword() != null && !login.getPassword().equals(""))) {
 			model.addAttribute("user", login.getUsername().toUpperCase());
