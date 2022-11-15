@@ -1,7 +1,6 @@
 package org.bookarchive.controller;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.bookarchive.model.Book;
 import org.bookarchive.service.ListService;
@@ -18,14 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/favoritebooks")
 public class ListController {
 
-	private AtomicLong counter = new AtomicLong();
-
-	List<Book> books = ListServiceImpl.listStarterBooks();
-
-	ModelAndView mv = new ModelAndView("bookList");
-
 	@Autowired
 	ListService listService = new ListServiceImpl();
+
+	List<Book> books = ListServiceImpl.fillList();
+	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
 	public ModelAndView getBookListHome() {

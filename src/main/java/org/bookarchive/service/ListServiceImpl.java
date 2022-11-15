@@ -15,8 +15,8 @@ public class ListServiceImpl implements ListService {
 
 	private static List<Book> books;
 
-	static {
-		books = listStarterBooks();
+	public static List<Book> fillList() {
+		return books = listStarterBooks();
 	}
 
 	public List<Book> findAllBooks() {
@@ -74,6 +74,7 @@ public class ListServiceImpl implements ListService {
 		books.add(new Book(counter.incrementAndGet(), "Frankenstein", "Mary Shelly", "Horror"));
 		books.add(new Book(counter.incrementAndGet(), "Exalted", "Onyx Path Publishing", "RPG"));
 		books.add(new Book(counter.incrementAndGet(), "After Man", "Dougal Dixon", "Science Fiction"));
+
 		return books;
 	}
 }
