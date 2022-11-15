@@ -4,7 +4,8 @@
 <html>
 <head>
 	<title>Book Archive</title>
-
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link href="/static/css/app.css" rel="stylesheet"></link>
 </head>
 
 <body>
@@ -35,5 +36,6 @@
       <script src="/static/js/app.js"></script>
       <script src="/static/js/service/listService.js"></script>
       <script src="/static/js/controller/listController.js"></script>
+
 </body>
 </html>

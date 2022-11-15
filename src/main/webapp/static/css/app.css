@@ -1,0 +1,26 @@
+html, body {
+	background-image: url("../css/img/wp6011714.webp");
+	background-color: pink;
+}
+
+h2 {
+	color: pink;
+}
+
+.belch {
+	background-color: pink;
+	margin-left: 500px;
+	margin-right: 500px;
+}
+
+table{
+	background-color: pink;
+}
+
+th {
+	padding: 20px;	
+}
+
+td {
+	padding: 20px;
+}

@@ -4,7 +4,8 @@
 <html>
 <head>
 	<title>Book Archive</title>
-
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link href="/static/css/app.css" rel="stylesheet"></link>
 </head>
 
 <body>
@@ -12,9 +13,9 @@
 <div align="center">
 	<h2>Add a new book to the Archive</h2><BR>
 	
-	
+	<div class="belch">
     <form action="/favoritebooks/addBook" method="post" modelAttribute="book" align="center">
-        <label>Title:  <input type="text" name="title" required="required"/></label><br><br>
+    <br><br><label>Title:  <input type="text" name="title" required="required"/></label><br><br>
         <label>Author:  <input type="text" name="author" required="required"/></label><br><br>
         <label>Illustrator:  <input type="text" name="illustrator" /></label><br><br>
         <label>Genre:  <input type="text" name="genre" /></label><br><br>
@@ -27,8 +28,8 @@
 	
 	<a href="/favoritebooks">
 	<button>See our list of books</button>
-	</a>
-	
+	</a><br><br>
+	</div>
 </div>
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
       <script src="/static/js/app.js"></script>
