@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping(value = "/favoritebooks/")
+@RequestMapping(value = "api/favoritebooks/")
 public class RestListController {
 
 	Logger logger = LoggerFactory.getLogger(RestListController.class);
@@ -39,7 +39,7 @@ public class RestListController {
 		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/favoritebooks/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBook(@PathVariable("id") long id) {
 		logger.debug("Fetching Book with id " + id);
 		Book book = listService.findById(id);
@@ -50,7 +50,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/favoritebooks/addBook")
+	@PostMapping(value = "addBook")
 	public ResponseEntity<?> createBook(@RequestBody Book book, UriComponentsBuilder ucBuilder) {
 		logger.debug("Creating Book " + book.getTitle());
 
@@ -66,7 +66,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.CREATED);
 	}
 
-	@PutMapping(value = "/favoritebooks/{id}")
+	@PutMapping(value = "{id}")
 	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
 		logger.debug("Updating Book " + id);
 
@@ -85,7 +85,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(currentBook, HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "/favoritebooks/{id}")
+	@DeleteMapping(value = "{id}")
 	public ResponseEntity<?> deleteBook(@PathVariable("id") long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
 
