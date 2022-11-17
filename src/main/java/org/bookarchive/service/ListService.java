@@ -10,15 +10,13 @@ public interface ListService {
 
 	public Book findByTitle(String title);
 
-	public List<Book> saveBook(Book book);
+	public void saveBook(Book book);
 
 	public void updateBook(Book book);
 
 	public void deleteBookById(long id);
 
 	public List<Book> findAllBooks();
-
-	public void deleteAllBooks();
 
 	public boolean doesBookExist(Book book);
 

@@ -6,19 +6,17 @@ import org.bookarchive.model.Book;
 
 public interface DAO {
 
-	public Book findById(long id);
+	public Book findById(Long id);
 
 	public Book findByTitle(String title);
 
-	public List<Book> saveBook(Book book);
+	public void saveBook(Book book);
 
 	public void updateBook(Book book);
 
-	public void deleteBookById(long id);
+	public void deleteBookById(Long id);
 
 	public List<Book> findAllBooks();
-
-	public void deleteAllBooks();
 
 	public boolean doesBookExist(Book book);
 

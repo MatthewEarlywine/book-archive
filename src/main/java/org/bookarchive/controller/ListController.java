@@ -58,7 +58,7 @@ public class ListController {
 				book.setIllustrator(book.getIllustrator());
 			}
 
-			books = listService.saveBook(book);
+			listService.saveBook(book);
 
 			mv.addObject("book", books);
 			return mv;

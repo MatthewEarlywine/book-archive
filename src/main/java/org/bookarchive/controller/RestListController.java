@@ -99,12 +99,4 @@ public class RestListController {
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 
-	@DeleteMapping
-	public ResponseEntity<Book> deleteAllBooks() {
-		logger.debug("Deleting All Books");
-
-		listService.deleteAllBooks();
-		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
-	}
-
 }
