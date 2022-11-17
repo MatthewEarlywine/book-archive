@@ -6,7 +6,7 @@ import org.bookarchive.model.Book;
 
 public interface ListService {
 
-	public Book findById(long id);
+	public Book findById(Long id);
 
 	public Book findByTitle(String title);
 
@@ -14,7 +14,7 @@ public interface ListService {
 
 	public void updateBook(Book book);
 
-	public void deleteBookById(long id);
+	public void deleteBookById(Long id);
 
 	public List<Book> findAllBooks();
 

@@ -6,6 +6,8 @@ import org.bookarchive.model.Book;
 import org.bookarchive.service.ListService;
 import org.bookarchive.service.ListServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,12 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/favoritebooks")
+@Configuration
+@ComponentScan("org.bookarchive")
 public class ListController {
 
 	@Autowired
 	ListService listService = new ListServiceImpl();
 
-	List<Book> books = ListServiceImpl.fillList();
+	List<Book> books;
 	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping

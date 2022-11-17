@@ -16,6 +16,7 @@
 	<div class="belch">
     <form action="/favoritebooks/addBook" method="post" modelAttribute="book" align="center">
     <br><br><label>Title:  <input type="text" name="title" required="required"/></label><br><br>
+    	<label>Series:  <input type="text" name="series"/></label><br><br>
         <label>Author:  <input type="text" name="author" required="required"/></label><br><br>
         <label>Illustrator:  <input type="text" name="illustrator" /></label><br><br>
         <label>Genre:  <input type="text" name="genre" /></label><br><br>

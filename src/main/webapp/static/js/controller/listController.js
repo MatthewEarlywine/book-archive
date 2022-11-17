@@ -2,7 +2,7 @@
 
 angular.module('myApp').controller('ListController', ['$scope', '$log' ,'ListService', function($scope, $log, ListService) {
     var self = this;
-    self.book = { id: null, title: '', author: '', genre: ''};
+    self.book = { id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
     self.books = [];
 
     self.submit = submit;
@@ -66,7 +66,8 @@ angular.module('myApp').controller('ListController', ['$scope', '$log' ,'ListSer
         reset();
     }
 
-    function edit(id){
+    function edit(book){
+    	var id = book.id;
         $log.log('id to be edited', id);
         for(var i = 0; i < self.books.length; i++){
             if(self.books[i].id === id) {
@@ -76,13 +77,13 @@ angular.module('myApp').controller('ListController', ['$scope', '$log' ,'ListSer
         }
     }
 
-    function remove(id){
-        $log.log('id to be deleted', id);
+    function remove(book){
+        $log.log('id to be deleted', book.id);
         //clean form after book is deleted
-        if(self.book.id === id) { 
+        if(self.book.id === book.id) { 
             reset();
         }
-        deleteBook(id);
+        deleteBook(book);
     }
 
 

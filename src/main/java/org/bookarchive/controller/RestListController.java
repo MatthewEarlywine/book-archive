@@ -7,6 +7,8 @@ import org.bookarchive.service.ListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,6 +25,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "api/favoritebooks/")
+@Configuration
+@ComponentScan("org.bookarchive")
 public class RestListController {
 
 	Logger logger = LoggerFactory.getLogger(RestListController.class);
@@ -40,7 +44,7 @@ public class RestListController {
 	}
 
 	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBook(@PathVariable("id") long id) {
+	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching Book with id " + id);
 		Book book = listService.findById(id);
 		if (book == null) {
@@ -86,7 +90,7 @@ public class RestListController {
 	}
 
 	@DeleteMapping(value = "{id}")
-	public ResponseEntity<?> deleteBook(@PathVariable("id") long id) {
+	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
 
 		Book book = listService.findById(id);

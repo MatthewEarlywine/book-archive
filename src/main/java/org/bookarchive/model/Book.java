@@ -31,18 +31,14 @@ public class Book {
 	@Column(name = "GENRE")
 	private String genre;
 
-	public Book() {
-		id = (long) 0;
-	}
-
-	public Book(Long id, String title, String series, String author, String illustrator, String genre) {
-		this.id = id;
-		this.title = title;
-		this.series = series;
-		this.author = author;
-		this.illustrator = illustrator;
-		this.genre = genre;
-	}
+//	public Book(Long id, String title, String series, String author, String illustrator, String genre) {
+//		this.id = id;
+//		this.title = title;
+//		this.series = series;
+//		this.author = author;
+//		this.illustrator = illustrator;
+//		this.genre = genre;
+//	}
 
 	public Long getId() {
 		return id;

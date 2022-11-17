@@ -6,6 +6,7 @@
 	<title>Book Archive</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
      <link href="/static/css/app.css" rel="stylesheet"></link>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 </head>
 
 <body>
@@ -17,6 +18,7 @@
 		<tr>
 			<th>Book Id</th>
 			<th>Title</th>
+			<th>Series</th>
 			<th>Author</th>
 			<th>Illustrator</th>
 			<th>Genre</th>
@@ -25,9 +27,14 @@
 			<tr>
 				<td>${book.id}</td>
 				<td>${book.title}</td>
+				<td>${book.series}</td>
 				<td>${book.author}</td>
 				<td>${book.illustrator}</td>
 				<td>${book.genre}</td>
+				<td>
+					<button type="button" ng-click="ctrl.edit(book)" class="btn btn-success custom-width">Edit</button>
+                    <button type="button" ng-click="ctrl.remove(book)" class="btn btn-danger custom-width">Remove</button>
+                </td>
 			</tr>
 		</c:forEach>
 	</table>
