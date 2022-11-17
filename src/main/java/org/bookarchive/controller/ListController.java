@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.bookarchive.model.Book;
 import org.bookarchive.service.ListService;
-import org.bookarchive.service.ListServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ListController {
 
 	@Autowired
-	ListService listService = new ListServiceImpl();
+	ListService listService; // = new ListServiceImpl();
 
 	List<Book> books;
 	ModelAndView mv = new ModelAndView("bookList");

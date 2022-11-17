@@ -32,11 +32,11 @@ public class RestListController {
 	Logger logger = LoggerFactory.getLogger(RestListController.class);
 
 	@Autowired
-	private ListService listService;
+	private ListService bookList;
 
 	@GetMapping
 	public ResponseEntity<?> listAllBooks() {
-		List<Book> books = listService.findAllBooks();
+		List<Book> books = bookList.findAllBooks();
 		if (books.isEmpty()) {
 			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
 		}
@@ -46,7 +46,7 @@ public class RestListController {
 	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching Book with id " + id);
-		Book book = listService.findById(id);
+		Book book = bookList.findById(id);
 		if (book == null) {
 			logger.debug("No book with id " + id + " found");
 			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
@@ -58,12 +58,12 @@ public class RestListController {
 	public ResponseEntity<?> createBook(@RequestBody Book book, UriComponentsBuilder ucBuilder) {
 		logger.debug("Creating Book " + book.getTitle());
 
-		if (listService.doesBookExist(book)) {
+		if (bookList.doesBookExist(book)) {
 			logger.debug("A Book with title " + book.getTitle() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 
-		listService.saveBook(book);
+		bookList.saveBook(book);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/favoritebooks/{id}").buildAndExpand(book.getId()).toUri());
@@ -74,7 +74,7 @@ public class RestListController {
 	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
 		logger.debug("Updating Book " + id);
 
-		Book currentBook = listService.findById(id);
+		Book currentBook = bookList.findById(id);
 
 		if (currentBook == null) {
 			logger.debug("Book with id " + id + " not found");
@@ -85,7 +85,7 @@ public class RestListController {
 		currentBook.setAuthor(book.getAuthor());
 		currentBook.setGenre(book.getGenre());
 
-		listService.updateBook(currentBook);
+		bookList.updateBook(currentBook);
 		return new ResponseEntity<Book>(currentBook, HttpStatus.OK);
 	}
 
@@ -93,13 +93,13 @@ public class RestListController {
 	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
 
-		Book book = listService.findById(id);
+		Book book = bookList.findById(id);
 		if (book == null) {
 			logger.debug("Unable to delete. Book with id " + id + " not found");
 			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 		}
 
-		listService.deleteBookById(id);
+		bookList.deleteBookById(id);
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 

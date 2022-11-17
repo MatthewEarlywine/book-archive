@@ -12,35 +12,39 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ListServiceImpl implements ListService {
 
-	@Autowired
-	private DAO dao;
+	@Autowired 				// Error creating bean with name 'listController': Unsatisfied dependency
+							// expressed through field 'listService':
+	private DAO bookRepo; 	// Error creating bean with name 'listServiceImpl': Unsatisfied dependency
+							// expressed through field 'bookRepo'
+							// Error creating bean with name 'DAOImpl': Injection of autowired dependencies
+							// failed;
 
 	public List<Book> findAllBooks() {
-		return dao.findAllBooks();
+		return bookRepo.findAllBooks();
 	}
 
 	public Book findById(Long id) {
-		return dao.findById(id);
+		return bookRepo.findById(id);
 	}
 
 	public Book findByTitle(String title) {
-		return dao.findByTitle(title);
+		return bookRepo.findByTitle(title);
 	}
 
 	public void saveBook(Book book) {
-		dao.saveBook(book);
+		bookRepo.saveBook(book);
 	}
 
 	public void updateBook(Book book) {
-		dao.updateBook(book);
+		bookRepo.updateBook(book);
 	}
 
 	public void deleteBookById(Long id) {
-		dao.deleteBookById(id);
+		bookRepo.deleteBookById(id);
 	}
 
 	public boolean doesBookExist(Book book) {
-		return dao.doesBookExist(book);
+		return bookRepo.doesBookExist(book);
 	}
 
 }
