@@ -15,16 +15,18 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping(value = "api/favoritebooks/")
+@RequestMapping("/bookarchive")
 @Configuration
 @ComponentScan("org.bookarchive")
 public class RestListController {
@@ -34,16 +36,17 @@ public class RestListController {
 	@Autowired
 	private ListService bookList;
 
+	List<Book> books;
+	ModelAndView mv = new ModelAndView("bookList");
+
 	@GetMapping
-	public ResponseEntity<?> listAllBooks() {
-		List<Book> books = bookList.findAllBooks();
-		if (books.isEmpty()) {
-			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+	public ModelAndView getBookListHome() {
+
+		mv.addObject("books", books);
+		return mv;
 	}
 
-	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching Book with id " + id);
 		Book book = bookList.findById(id);
@@ -54,20 +57,48 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "addBook")
-	public ResponseEntity<?> createBook(@RequestBody Book book, UriComponentsBuilder ucBuilder) {
-		logger.debug("Creating Book " + book.getTitle());
+	@GetMapping("/addBook")
+	public ModelAndView getAddBookPage() {
 
-		if (bookList.doesBookExist(book)) {
-			logger.debug("A Book with title " + book.getTitle() + " already exist");
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		return new ModelAndView("addBook");
+	}
+
+	@PostMapping("/addBook")
+	public ModelAndView submit(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
+
+		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
+				&& (book.getAuthor() != null && !book.getAuthor().equals(""))) {
+
+			book.setTitle(book.getTitle());
+			book.setAuthor(book.getAuthor());
+
+			if (book.getSeries() == null) {
+				book.setSeries("");
+			} else {
+				book.setSeries(book.getSeries());
+			}
+			
+			if (book.getGenre() == null) {
+				book.setGenre("");
+			} else {
+				book.setGenre(book.getGenre());
+			}
+
+			if (book.getIllustrator() == null) {
+				book.setIllustrator("");
+			} else {
+				book.setIllustrator(book.getIllustrator());
+			}
+
+			bookList.saveBook(book);
+
+			mv.addObject("book", books);
+			return mv;
+		} else {
+			mv.addObject("error", "Both Title and Author of book are required.");
+			return getAddBookPage;
 		}
 
-		bookList.saveBook(book);
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/favoritebooks/{id}").buildAndExpand(book.getId()).toUri());
-		return new ResponseEntity<Book>(book, HttpStatus.CREATED);
 	}
 
 	@PutMapping(value = "{id}")
