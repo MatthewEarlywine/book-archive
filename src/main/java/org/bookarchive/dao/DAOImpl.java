@@ -16,7 +16,7 @@ public class DAOImpl implements DAO {
 	private SessionFactory sessionFactory;
 
 	public Book findById(Long id) {
-		String hql = "FROM BOOKARCHIVE b WHERE b.id = :id";
+		String hql = "FROM Book b WHERE b.id = :id";
 		Query query = sessionFactory.openSession().createQuery(hql);
 		query.setParameter("id", id);
 		return (Book) query.uniqueResult();

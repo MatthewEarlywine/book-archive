@@ -13,13 +13,14 @@
 <div align="center">
 	<h2>Find a Book in the Archive</h2><BR>
 	
-	<div class="belch">
+	<div ng-controller="FindBook" class="belch">
     	<form action="/bookarchive/findBook" method="post" modelAttribute="book" align="center">
     		<label>Search by: 
-    			<select name="criteria">
-			    	<option value="0">ID:  <input type="text" name="id" /></option><br><br>
-			    	<option value="1">Title:  <input type="text" name="title" /></option><br><br>
+    			<select name="book">
+			    	<option value="id">ID: </option>
+			    	<option value="title">Title: </option>
 			    </select>
+			    <input type="text" name="field" id="field" ng-model="book.${ }" />
         	</label>
         	
         	<!-- Search through table for book.id or book.title, OR book.${name} -->

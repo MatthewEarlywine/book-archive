@@ -1,5 +1,6 @@
 package org.bookarchive.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bookarchive.model.Book;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -40,7 +42,7 @@ public class RestListController {
 	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
-	public ModelAndView getBookListHome() {
+	public ModelAndView getBookListHome(@ModelAttribute("books") List<Book> books) {
 
 		mv.addObject("books", books);
 		return mv;
@@ -57,6 +59,34 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
+	@GetMapping("/findBook")
+	public ModelAndView getFindBookPage() {
+
+		return new ModelAndView("findBook");
+	}
+	
+//	###  Originally was going to use a search page with selector input ### 
+	
+//	@PostMapping("/findBook")   
+//	public ModelAndView submitFindBookPage(ModelAndView getFindBookPage, @ModelAttribute("book") Book book,
+//			@RequestParam(value="criteria") String criteria, @RequestParam(value="field") String field) {
+//
+//		List<Book> foundBooks = new ArrayList<Book>();
+//		
+//		if (criteria == "id") {
+//			Long soughtId = Long.parseLong(field);
+//			foundBooks.add(bookList.findById(soughtId));
+//		} else if (criteria == "title") {
+//			for(Book b : books) {
+//				if (b.getTitle() == field) { foundBooks.add(b); }
+//				}
+//			foundBooks.add(bookList.findByTitle(field));
+//		}
+//		mv.addObject(foundBooks);
+//		return mv;
+//	}
+	
+	
 	@GetMapping("/addBook")
 	public ModelAndView getAddBookPage() {
 
@@ -64,7 +94,7 @@ public class RestListController {
 	}
 
 	@PostMapping("/addBook")
-	public ModelAndView submit(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
+	public ModelAndView submitAddBookPage(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
 
 		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
 				&& (book.getAuthor() != null && !book.getAuthor().equals(""))) {

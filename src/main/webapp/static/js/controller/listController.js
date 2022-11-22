@@ -25,6 +25,31 @@ angular.module('myApp').controller('ListController', ['$scope', '$log' ,'ListSer
         );
     }
 
+
+	function searchForBookById(){
+		ListService.searchForBookById(id)
+			.then(
+			function(d) {
+				self.book = d;
+			},
+			function(errResponse){
+                $log.error('Error while fetching Book ', errResponse);
+            }
+        );
+	}
+	
+	function searchForBookByTitle(){
+		ListService.searchForBookByTitle(title)
+			.then(
+			function(d) {
+				self.book = d;
+			},
+			function(errResponse){
+                $log.error('Error while fetching Book ', errResponse);
+            }
+        );
+	}
+
     function createBook(book){
         ListService.createBook(book)
             .then(
