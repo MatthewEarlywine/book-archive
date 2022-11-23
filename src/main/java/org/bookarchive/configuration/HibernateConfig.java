@@ -40,34 +40,34 @@ public class HibernateConfig {
 		return sessionFactory;
 	}
 
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
-		dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
-		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+//	@Bean
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
+//		dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
+//		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
+//		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+//
+//		Resource initialSchema = new ClassPathResource("schema.sql");
+//		Resource initialData = new ClassPathResource("data.sql");
+//		DatabasePopulator schemaBuilder = new ResourceDatabasePopulator(initialSchema);
+//		DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initialData);
+//		DatabasePopulatorUtils.execute(schemaBuilder, dataSource);
+//		DatabasePopulatorUtils.execute(databasePopulator, dataSource);
+//		return dataSource;
+//	}
 
-		Resource initialSchema = new ClassPathResource("schema.sql");
-		Resource initialData = new ClassPathResource("data.sql");
-		DatabasePopulator schemaBuilder = new ResourceDatabasePopulator(initialSchema);
-		DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initialData);
-		DatabasePopulatorUtils.execute(schemaBuilder, dataSource);
-		DatabasePopulatorUtils.execute(databasePopulator, dataSource);
-		return dataSource;
-	}
-
-//	@Bean          ----   For Embedded H2 Database ------------
-//    public DataSource dataSource() {
-//      return new EmbeddedDatabaseBuilder()
-//        .generateUniqueName(false)
-//        .setName("testdb")
-//        .setType(EmbeddedDatabaseType.H2)
-////        .addDefaultScripts()
-//        .setScriptEncoding("UTF-8")
-//        .ignoreFailedDrops(true)
-//        .build();
-//    }
+	@Bean         // ----   For Embedded H2 Database ------------
+    public DataSource dataSource() {
+      return new EmbeddedDatabaseBuilder()
+        .generateUniqueName(false)
+        .setName("testdb")
+        .setType(EmbeddedDatabaseType.H2)
+        .addDefaultScripts()
+        .setScriptEncoding("UTF-8")
+        .ignoreFailedDrops(true)
+        .build();
+    }
 	
 	private Properties hibernateProperties() {
 		Properties properties = new Properties();

@@ -21,14 +21,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class ListController {
 
 	@Autowired
-	ListService listService; // = new ListServiceImpl();
+	ListService bookService; // = new ListServiceImpl();
 
 	List<Book> books;
 	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
-	public ModelAndView getBookListHome(@ModelAttribute("books") List<Book> books) {
-		
+	public ModelAndView getBookListHome() {
+		List<Book> books = bookService.findAllBooks();
 		mv.addObject("books", books);
 		return mv;
 	}
@@ -60,9 +60,9 @@ public class ListController {
 				book.setIllustrator(book.getIllustrator());
 			}
 
-			listService.saveBook(book);
+			bookService.saveBook(book);
 
-			mv.addObject("book", books);
+			
 			return mv;
 		} else {
 			mv.addObject("error", "Both Title and Author of book are required.");

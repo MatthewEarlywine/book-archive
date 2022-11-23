@@ -45,6 +45,12 @@
 		    <artifactId>slf4j-simple</artifactId>
 		    <version>1.7.30</version>  
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
 		
 		<!-- hibernate -->
 		
@@ -91,8 +97,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.197</version>
-			<scope>runtime</scope>
+			<version>2.1.214</version>
 		</dependency>
 	</dependencies>
 

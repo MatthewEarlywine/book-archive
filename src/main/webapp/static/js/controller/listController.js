@@ -11,9 +11,9 @@ angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'Lis
     self.reset = reset;
 
 
-    fetchAllBooks();
+    findAllBooks();
 
-    function fetchAllBooks(){
+    function findAllBooks(){
         ListService.fetchAllBooks()
             .then(
             function(d) {

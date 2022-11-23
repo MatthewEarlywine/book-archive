@@ -21,10 +21,8 @@ public class DAOImpl implements DAO {
 	private SessionFactory sessionFactory;
 
 	public Book findById(Long id) {
-		String hql = "FROM Book b WHERE b.id = :id";
-		Query query = sessionFactory.openSession().createQuery(hql);
-		query.setParameter("id", id);
-		return (Book) query.getResultList();
+		Session s = sessionFactory.getCurrentSession();
+		return s.get(Book.class, id);
 	}
 	
 //	@Override
@@ -33,13 +31,9 @@ public class DAOImpl implements DAO {
 //        return currentSession.get(Task.class, id);
 //    }
 
-
-
 	public Book findByTitle(String title) {
-		String hql = "FROM Book b WHERE b.title = :title"; // HQL Query
-		Query query = sessionFactory.openSession().createQuery(hql);
-		query.setParameter("title", title);
-		return (Book) query.getResultList();
+		Session s = sessionFactory.getCurrentSession();
+		return s.get(Book.class, title);
 	}
 
 	public void saveBook(Book book) {
@@ -51,9 +45,9 @@ public class DAOImpl implements DAO {
 	}
 
 	public void deleteBookById(Long id) {
-		Query query = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM Book WHERE ID = :ID");
-		query.setParameter("ID", id);
-		query.executeUpdate();
+		Session session = sessionFactory.getCurrentSession();
+		Book book = session.byId(Book.class).load(id);
+		session.delete(book);
 	}
 
 	@SuppressWarnings("unchecked")

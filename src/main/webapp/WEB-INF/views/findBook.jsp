@@ -61,7 +61,7 @@
                     </tr>
                 </tbody>
            </table>
-           			<a href="/bookarchive">
+           			<a href="/favoritebooks">
 			<button>See our full list of books</button>
 			</a><br><br>
        </div>
