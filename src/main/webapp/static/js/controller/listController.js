@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('ListController', ['$scope', '$log' ,'ListService', function($scope, $log, ListService) {
+angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'ListService', function($scope, $log, ListService) {
     var self = this;
     self.book = { id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
     self.books = [];

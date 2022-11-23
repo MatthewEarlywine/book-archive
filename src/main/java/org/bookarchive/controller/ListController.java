@@ -27,9 +27,8 @@ public class ListController {
 	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
-	public ModelAndView getBookListHome() {
-
-		mv.addObject("test", "Testing");
+	public ModelAndView getBookListHome(@ModelAttribute("books") List<Book> books) {
+		
 		mv.addObject("books", books);
 		return mv;
 	}

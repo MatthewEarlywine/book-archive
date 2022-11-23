@@ -28,7 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/bookarchive")
+@RequestMapping("/api/favoritebooks")
 @Configuration
 @ComponentScan("org.bookarchive")
 public class RestListController {
@@ -38,12 +38,12 @@ public class RestListController {
 	@Autowired
 	private ListService bookList;
 
-	List<Book> books;
+	
 	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
-	public ModelAndView getBookListHome(@ModelAttribute("books") List<Book> books) {
-
+	public ModelAndView getBookListHome() {
+		List<Book> books = bookList.findAllBooks();
 		mv.addObject("books", books);
 		return mv;
 	}
@@ -122,7 +122,7 @@ public class RestListController {
 
 			bookList.saveBook(book);
 
-			mv.addObject("book", books);
+			
 			return mv;
 		} else {
 			mv.addObject("error", "Both Title and Author of book are required.");

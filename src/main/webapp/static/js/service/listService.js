@@ -26,6 +26,28 @@ function ListServiceFactory($http, $log) {
             }
         );
     }
+    
+    function searchForBookById() {
+		return $http.post(REST_SERVICE_URI).then(
+			function (response) {
+				return response.data;
+			},
+			function (errResponse) {
+				$log.error('Error while fetching Book ', errResponse);
+			}
+		);
+	}
+	
+	function searchForBookByTitle() {
+		return $http.post(REST_SERVICE_URI).then(
+			function (response) {
+				return response.data;
+			},
+			function (errResponse) {
+				$log.error('Error while fetching Book ', errResponse);
+			}
+		);
+	}
 
     function createBook(book) {
         return $http.post(REST_SERVICE_URI, book).then(

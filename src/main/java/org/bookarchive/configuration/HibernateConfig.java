@@ -13,6 +13,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -55,6 +57,18 @@ public class HibernateConfig {
 		return dataSource;
 	}
 
+//	@Bean          ----   For Embedded H2 Database ------------
+//    public DataSource dataSource() {
+//      return new EmbeddedDatabaseBuilder()
+//        .generateUniqueName(false)
+//        .setName("testdb")
+//        .setType(EmbeddedDatabaseType.H2)
+////        .addDefaultScripts()
+//        .setScriptEncoding("UTF-8")
+//        .ignoreFailedDrops(true)
+//        .build();
+//    }
+	
 	private Properties hibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
