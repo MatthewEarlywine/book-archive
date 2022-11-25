@@ -12,8 +12,17 @@
 <body>
 
 <div align="center">
-	<h2>Complete Book List</h2><BR>
+
+	<a href="/api/favoritebooks/findBook">
+	<button>Find a book</button>
+	</a><br><br>
 	
+	<a href="/api/favoritebooks/addBook">
+	<button>Add a new book</button>
+	</a>
+
+	<h2>Complete Book List</h2><BR>
+
 	<table border="1">
 		<tr>
 			<th>Book Id</th>

@@ -1,5 +1,6 @@
 package org.bookarchive.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bookarchive.model.Book;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,14 +34,14 @@ public class RestListController {
 	Logger logger = LoggerFactory.getLogger(RestListController.class);
 
 	@Autowired
-	private ListService bookList;
+	private ListService bookService;
 
 	
 	ModelAndView mv = new ModelAndView("bookList");
 
 	@GetMapping
 	public ModelAndView getBookListHome() {
-		List<Book> books = bookList.findAllBooks();
+		List<Book> books = bookService.findAllBooks();
 		mv.addObject("books", books);
 		return mv;
 	}
@@ -47,7 +49,7 @@ public class RestListController {
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching Book with id " + id);
-		Book book = bookList.findById(id);
+		Book book = bookService.findById(id);
 		if (book == null) {
 			logger.debug("No book with id " + id + " found");
 			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
@@ -63,24 +65,24 @@ public class RestListController {
 	
 //	###  Originally was going to use a search page with selector input ### 
 	
-//	@PostMapping("/findBook")   
-//	public ModelAndView submitFindBookPage(ModelAndView getFindBookPage, @ModelAttribute("book") Book book,
-//			@RequestParam(value="criteria") String criteria, @RequestParam(value="field") String field) {
-//
-//		List<Book> foundBooks = new ArrayList<Book>();
-//		
-//		if (criteria == "id") {
-//			Long soughtId = Long.parseLong(field);
-//			foundBooks.add(bookList.findById(soughtId));
-//		} else if (criteria == "title") {
-//			for(Book b : books) {
-//				if (b.getTitle() == field) { foundBooks.add(b); }
-//				}
-//			foundBooks.add(bookList.findByTitle(field));
-//		}
-//		mv.addObject(foundBooks);
-//		return mv;
-//	}
+	@PostMapping("/findBook")   
+	public ModelAndView submitFindBookPage(ModelAndView getFindBookPage, @ModelAttribute("book") Book book,
+			@RequestParam(value="criteria") String criteria, @RequestParam(value="field") String field) {
+		
+		List<Book> foundBooks = new ArrayList<Book>();
+		
+		if (criteria == "id") {
+			Long soughtId = Long.parseLong(field);
+			foundBooks.add(bookService.findById(soughtId));
+		} else if (criteria == "title") {
+			for(Book b : bookService.findAllBooks()) {
+				if (b.getTitle() == field) { foundBooks.add(b); }
+				}
+			foundBooks.add(bookService.findByTitle(field));
+		}
+		mv.addObject(foundBooks);
+		return mv;
+	}
 	
 	
 	@GetMapping("/addBook")
@@ -88,6 +90,12 @@ public class RestListController {
 
 		return new ModelAndView("addBook");
 	}
+	
+//	@PostMapping("/addBook")
+//	public ResponseEntity<Book> saveBook(@RequestBody Book book){
+//		bookService.saveBook(book);
+//		return new ResponseEntity<Book>(book, HttpStatus.OK);
+//	}
 
 	@PostMapping("/addBook")
 	public ModelAndView submitAddBookPage(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
@@ -95,6 +103,7 @@ public class RestListController {
 		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
 				&& (book.getAuthor() != null && !book.getAuthor().equals(""))) {
 
+			
 			book.setTitle(book.getTitle());
 			book.setAuthor(book.getAuthor());
 
@@ -116,7 +125,7 @@ public class RestListController {
 				book.setIllustrator(book.getIllustrator());
 			}
 
-			bookList.saveBook(book);
+			bookService.saveBook(book);
 
 			
 			return mv;
@@ -131,7 +140,7 @@ public class RestListController {
 	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
 		logger.debug("Updating Book " + id);
 
-		Book currentBook = bookList.findById(id);
+		Book currentBook = bookService.findById(id);
 
 		if (currentBook == null) {
 			logger.debug("Book with id " + id + " not found");
@@ -142,7 +151,7 @@ public class RestListController {
 		currentBook.setAuthor(book.getAuthor());
 		currentBook.setGenre(book.getGenre());
 
-		bookList.updateBook(currentBook);
+		bookService.updateBook(currentBook);
 		return new ResponseEntity<Book>(currentBook, HttpStatus.OK);
 	}
 
@@ -150,13 +159,13 @@ public class RestListController {
 	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
 
-		Book book = bookList.findById(id);
+		Book book = bookService.findById(id);
 		if (book == null) {
 			logger.debug("Unable to delete. Book with id " + id + " not found");
 			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 		}
 
-		bookList.deleteBookById(id);
+		bookService.deleteBookById(id);
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 

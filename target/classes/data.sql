@@ -1,3 +1,3 @@
-INSERT INTO bookarchive.book (book_id, book_title, book_series, book_author, book_illustrator, book_genre) values ('1', 'Frankenstein', '', 'Mary Shelly', '', 'Horror' );
-INSERT INTO bookarchive.book (book_id, book_title, book_series, book_author, book_illustrator, book_genre) values ('2', 'Exalted', 'Exalted', 'Onyx Path Publishing', '', 'RPG' );
-INSERT INTO bookarchive.book (book_id, book_title, book_series, book_author, book_illustrator, book_genre) values ('3', 'After Man', '', 'Dougal Dixon', '', 'Science Fiction' );
+INSERT INTO book (title, series, author, illustrator, genre) values ( 'Frankenstein', '', 'Mary Shelly', '', 'Horror' );
+INSERT INTO book (title, series, author, illustrator, genre) values ( 'Exalted', 'Exalted', 'Onyx Path Publishing', '', 'RPG' );
+INSERT INTO book (title, series, author, illustrator, genre) values ( 'After Man', '', 'Dougal Dixon', '', 'Science Fiction' );

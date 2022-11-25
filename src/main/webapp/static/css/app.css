@@ -4,11 +4,11 @@ html, body {
 }
 
 h2 {
-	color: pink;
+	color: orange;
 }
 
 .belch {
-	background-color: pink;
+	background-color: orange;
 	margin-left: 500px;
 	margin-right: 500px;
 }

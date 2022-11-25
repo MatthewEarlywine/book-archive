@@ -14,20 +14,20 @@
 	<h2>Add a new book to the Archive</h2><BR>
 	
 	<div class="belch">
-    <form action="/favoritebooks/addBook" method="post" modelAttribute="book" align="center">
+    <form action="/api/favoritebooks/addBook" method="post" modelAttribute="book" align="center">
     <br><br><label>Title:  <input type="text" name="title" required="required"/></label><br><br>
     	<label>Series:  <input type="text" name="series"/></label><br><br>
         <label>Author:  <input type="text" name="author" required="required"/></label><br><br>
         <label>Illustrator:  <input type="text" name="illustrator" /></label><br><br>
         <label>Genre:  <input type="text" name="genre" /></label><br><br>
-        <a href="/favoritebooks">
+        <a href="/api/favoritebooks">
         <input type="submit" value="Submit new book"/>
         </a>
         <p style="color: red">${error}</p>
     </form><br>
 	
 	
-	<a href="/favoritebooks">
+	<a href="/api/favoritebooks">
 	<button>See our list of books</button>
 	</a><br><br>
 	</div>

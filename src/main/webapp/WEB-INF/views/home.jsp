@@ -13,11 +13,15 @@
 <div align="center">
 	<h2>Welcome to the Archive</h2><BR>
 	
-	<a href="/favoritebooks">
+	<a href="/api/favoritebooks">
 	<button>See our list of books</button>
-	</a>
+	</a><br><br>
 	
-	<a href="/favoritebooks/addBook">
+	<a href="/api/favoritebooks/findBook">
+	<button>Add a new book</button>
+	</a><br><br>
+	
+	<a href="/api/favoritebooks/addBook">
 	<button>Add a new book</button>
 	</a>
 </div>

@@ -37,7 +37,10 @@ public class DAOImpl implements DAO {
 	}
 
 	public void saveBook(Book book) {
-		sessionFactory.getCurrentSession().save(book);
+		book.setId(0L);
+		
+		Session s = sessionFactory.getCurrentSession();
+		s.save(book);
 	}
 
 	public void updateBook(Book book) {

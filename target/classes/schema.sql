@@ -1,13 +1,13 @@
-DROP TABLE bookarchive.book;
+DROP TABLE book;
 DROP SCHEMA IF EXISTS bookarchive;
 
 CREATE SCHEMA bookarchive AUTHORIZATION sa;
 
-CREATE TABLE bookarchive.book ( 
-   book_id INT NOT NULL, 
-   book_title VARCHAR(50) NOT NULL,
-   book_series VARCHAR(20),
-   book_author VARCHAR(20) NOT NULL,
-   book_illustrator VARCHAR(20),
-   book_genre VARCHAR(20)
+CREATE TABLE book ( 
+   id INT auto_increment NOT NULL, 
+   title VARCHAR(50) NOT NULL,
+   series VARCHAR(20),
+   author VARCHAR(20) NOT NULL,
+   illustrator VARCHAR(20),
+   genre VARCHAR(20)
 );

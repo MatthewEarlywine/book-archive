@@ -12,13 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ListServiceImpl implements ListService {
 
-	@Autowired 				// Error creating bean with name 'listController': Unsatisfied dependency
-							// expressed through field 'listService':
-	private DAO bookRepo; 	// Error creating bean with name 'listServiceImpl': Unsatisfied dependency
-							// expressed through field 'bookRepo'
-							// Error creating bean with name 'DAOImpl': Injection of autowired dependencies
-							// failed;
-
+	@Autowired 				
+	
+	private DAO bookRepo; 	
+	
 	public List<Book> findAllBooks() {
 		return bookRepo.findAllBooks();
 	}

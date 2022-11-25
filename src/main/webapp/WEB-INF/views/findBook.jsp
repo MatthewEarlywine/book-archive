@@ -23,7 +23,7 @@
 			    <input type="text" name="field" id="field" ng-model="${book.value}" />
         	</label>
         	
-	        <a href="/bookarchive">
+	        <a href="/api/favoritebooks">
 	        <input type="submit" value="Search for book"/>
 	        </a>
         	<p style="color: red">${error}</p>
@@ -61,7 +61,7 @@
                     </tr>
                 </tbody>
            </table>
-           			<a href="/favoritebooks">
+           			<a href="/api/favoritebooks">
 			<button>See our full list of books</button>
 			</a><br><br>
        </div>
