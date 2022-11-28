@@ -26,12 +26,11 @@ public class ListController {
 	List<Book> books;
 	ModelAndView mv = new ModelAndView("bookList");
 
-	@GetMapping
-	public ModelAndView getBookListHome() {
-		List<Book> books = bookService.findAllBooks();
-		mv.addObject("books", books);
-		return mv;
-	}
+//	@GetMapping
+//	public ModelAndView getBookListHome() {
+//
+//		return mv;
+//	}
 
 //	@GetMapping("/addBook")
 //	public ModelAndView getAddBookPage() {

@@ -43,12 +43,14 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
 		newBook.genre = $scope.genre;
 		postBook(newBook);
 	}
+	
 
 	function postBook(book){
 		ListService.createBook(book)
 			.then(
 			function(d){
 				$scope.books.push(d);
+				reset();
 			},
 			function(errResponse){
                 $log.error('Error while creating Book ', errResponse);
@@ -144,7 +146,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
 
     function reset(){
         self.book={id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
-        $scope.myForm.$setPristine();
+        $scope.bookForm.$setPristine();
     }
 
 }]);

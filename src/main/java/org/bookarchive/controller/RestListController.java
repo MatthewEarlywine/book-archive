@@ -41,8 +41,7 @@ public class RestListController {
 
 	@GetMapping
 	public ModelAndView getBookListHome() {
-		
-		
+			
 		return mv;
 	}
 
@@ -52,50 +51,50 @@ public class RestListController {
 		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
-		logger.debug("Fetching Book with id " + id);
-		Book book = bookService.findById(id);
-		if (book == null) {
-			logger.debug("No book with id " + id + " found");
-			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<Book>(book, HttpStatus.OK);
-	}
+//	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
+//		logger.debug("Fetching Book with id " + id);
+//		Book book = bookService.findById(id);
+//		if (book == null) {
+//			logger.debug("No book with id " + id + " found");
+//			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
+//		}
+//		return new ResponseEntity<Book>(book, HttpStatus.OK);
+//	}
 
-	@GetMapping("/findBook")
-	public ModelAndView getFindBookPage() {
-
-		return new ModelAndView("findBook");
-	}
-	
+//	@GetMapping("/findBook")
+//	public ModelAndView getFindBookPage() {
+//
+//		return new ModelAndView("findBook");
+//	}
+//	
 //	###  Originally was going to use a search page with selector input ### 
 	
-	@PostMapping("/findBook")   
-	public ModelAndView submitFindBookPage(ModelAndView getFindBookPage, @ModelAttribute("book") Book book,
-			@RequestParam(value="criteria") String criteria, @RequestParam(value="field") String field) {
-		
-		List<Book> foundBooks = new ArrayList<Book>();
-		
-		if (criteria == "id") {
-			Long soughtId = Long.parseLong(field);
-			foundBooks.add(bookService.findById(soughtId));
-		} else if (criteria == "title") {
-			for(Book b : bookService.findAllBooks()) {
-				if (b.getTitle() == field) { foundBooks.add(b); }
-				}
-			foundBooks.add(bookService.findByTitle(field));
-		}
-		mv.addObject(foundBooks);
-		return mv;
-	}
+//	@PostMapping("/findBook")   
+//	public ModelAndView submitFindBookPage(ModelAndView getFindBookPage, @ModelAttribute("book") Book book,
+//			@RequestParam(value="criteria") String criteria, @RequestParam(value="field") String field) {
+//		
+//		List<Book> foundBooks = new ArrayList<Book>();
+//		
+//		if (criteria == "id") {
+//			Long soughtId = Long.parseLong(field);
+//			foundBooks.add(bookService.findById(soughtId));
+//		} else if (criteria == "title") {
+//			for(Book b : bookService.findAllBooks()) {
+//				if (b.getTitle() == field) { foundBooks.add(b); }
+//				}
+//			foundBooks.add(bookService.findByTitle(field));
+//		}
+//		mv.addObject(foundBooks);
+//		return mv;
+//	}
 	
 	
-	@GetMapping("/addBook")
-	public ModelAndView getAddBookPage() {
-
-		return new ModelAndView("addBook");
-	}
+//	@GetMapping("/addBook")
+//	public ModelAndView getAddBookPage() {
+//
+//		return new ModelAndView("addBook");
+//	}
 	
 	@PostMapping(value = "/saveBook")
 	public ResponseEntity<Book> saveBook(@RequestBody Book book){
@@ -103,44 +102,44 @@ public class RestListController {
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
-	@PostMapping
-	public ModelAndView submitAddBookPage(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
-
-		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
-				&& (book.getAuthor() != null && !book.getAuthor().equals(""))) {
-
-			
-			book.setTitle(book.getTitle());
-			book.setAuthor(book.getAuthor());
-
-			if (book.getSeries() == null) {
-				book.setSeries("");
-			} else {
-				book.setSeries(book.getSeries());
-			}
-			
-			if (book.getGenre() == null) {
-				book.setGenre("");
-			} else {
-				book.setGenre(book.getGenre());
-			}
-
-			if (book.getIllustrator() == null) {
-				book.setIllustrator("");
-			} else {
-				book.setIllustrator(book.getIllustrator());
-			}
-
-			bookService.saveBook(book);
-			bookService.findAllBooks();
-			
-			return mv;
-		} else {
-			mv.addObject("error", "Both Title and Author of book are required.");
-			return getAddBookPage;
-		}
-
-	}
+//	@PostMapping
+//	public ModelAndView submitAddBookPage(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
+//
+//		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
+//				&& (book.getAuthor() != null && !book.getAuthor().equals(""))) {
+//
+//			
+//			book.setTitle(book.getTitle());
+//			book.setAuthor(book.getAuthor());
+//
+//			if (book.getSeries() == null) {
+//				book.setSeries("");
+//			} else {
+//				book.setSeries(book.getSeries());
+//			}
+//			
+//			if (book.getGenre() == null) {
+//				book.setGenre("");
+//			} else {
+//				book.setGenre(book.getGenre());
+//			}
+//
+//			if (book.getIllustrator() == null) {
+//				book.setIllustrator("");
+//			} else {
+//				book.setIllustrator(book.getIllustrator());
+//			}
+//
+//			bookService.saveBook(book);
+//			bookService.findAllBooks();
+//			
+//			return mv;
+//		} else {
+//			mv.addObject("error", "Both Title and Author of book are required.");
+//			return getAddBookPage;
+//		}
+//
+//	}
 
 	@PutMapping(value = "{id}")
 	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
@@ -161,7 +160,7 @@ public class RestListController {
 		return new ResponseEntity<Book>(currentBook, HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "{id}")
+	@DeleteMapping(value = "/delete/{id}")
 	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
 
@@ -172,6 +171,7 @@ public class RestListController {
 		}
 
 		bookService.deleteBookById(id);
+		bookService.findAllBooks();
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 

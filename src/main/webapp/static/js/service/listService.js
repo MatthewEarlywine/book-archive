@@ -73,7 +73,7 @@ function ListServiceFactory($http, $log) {
     }
 
     function deleteBook(book) {
-        return $http.delete(REST_SERVICE_URI + book.id).then(
+        return $http.delete("/api/favoritebooks/delete/" + book.id).then(
             function (response) {
                 return response.data
             },

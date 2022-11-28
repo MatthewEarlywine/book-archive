@@ -14,12 +14,12 @@
 <div align="center" class="belch">
 	
 	<h2>List of Favorite Books</h2><BR>
-    <form align="center">
+    <form align="center" name="bookForm">
     <br><br><label>Title:  <input ng-model="title" type="text" name="title" required="required"/></label><br>
-    	<label>Series:  <input  type="text" name="series"/></label><br>
+    	<label>Series:  <input ng-model="series" type="text" name="series"/></label><br>
         <label>Author:  <input ng-model="author" type="text" name="author" required="required"/></label><br>
-        <label>Illustrator:  <input type="text" name="illustrator" /></label><br>
-        <label>Genre:  <input type="text" name="genre" /></label><br>
+        <label>Illustrator:  <input ng-model="illustrator" type="text" name="illustrator" /></label><br>
+        <label>Genre:  <input ng-model="genre" type="text" name="genre" /></label><br>
         
         <input type="submit" ng-click="submit()" value="Submit new book" />
         
