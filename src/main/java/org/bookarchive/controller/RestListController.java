@@ -41,11 +41,17 @@ public class RestListController {
 
 	@GetMapping
 	public ModelAndView getBookListHome() {
-		List<Book> books = bookService.findAllBooks();
-		mv.addObject("books", books);
+		
+		
 		return mv;
 	}
 
+	@GetMapping(value = "/getAllBooks")
+	public ResponseEntity<List<Book>> getAllBooks(){
+		List<Book> books = bookService.findAllBooks();
+		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+	}
+	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching Book with id " + id);
@@ -91,13 +97,13 @@ public class RestListController {
 		return new ModelAndView("addBook");
 	}
 	
-//	@PostMapping("/addBook")
-//	public ResponseEntity<Book> saveBook(@RequestBody Book book){
-//		bookService.saveBook(book);
-//		return new ResponseEntity<Book>(book, HttpStatus.OK);
-//	}
+	@PostMapping(value = "/saveBook")
+	public ResponseEntity<Book> saveBook(@RequestBody Book book){
+		bookService.saveBook(book);
+		return new ResponseEntity<Book>(book, HttpStatus.OK);
+	}
 
-	@PostMapping("/addBook")
+	@PostMapping
 	public ModelAndView submitAddBookPage(ModelAndView getAddBookPage, @ModelAttribute("book") Book book) {
 
 		if (book != null && (book.getTitle() != null && !book.getTitle().equals(""))
@@ -126,7 +132,7 @@ public class RestListController {
 			}
 
 			bookService.saveBook(book);
-
+			bookService.findAllBooks();
 			
 			return mv;
 		} else {

@@ -18,7 +18,7 @@
 	</a><br><br>
 	
 	<a href="/api/favoritebooks/findBook">
-	<button>Add a new book</button>
+	<button>Find a book</button>
 	</a><br><br>
 	
 	<a href="/api/favoritebooks/addBook">

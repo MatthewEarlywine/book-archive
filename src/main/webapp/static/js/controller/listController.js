@@ -1,15 +1,23 @@
 'use strict';
 
-angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'ListService', function($scope, $log, ListService) {
+angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListService', function($scope, $log, ListService) {
     var self = this;
     self.book = { id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
-    self.books = [];
+    $scope.books = [];
 
     self.submit = submit;
     self.edit = edit;
     self.remove = remove;
     self.reset = reset;
-
+	
+	// form variables
+	
+	$scope.id=null;
+	$scope.title='';
+	$scope.series='';
+	$scope.author='';
+	$scope.illustrator='';
+	$scope.genre='';
 
     findAllBooks();
 
@@ -17,7 +25,7 @@ angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'Lis
         ListService.fetchAllBooks()
             .then(
             function(d) {
-                self.books = d;
+                $scope.books = d;
             },
             function(errResponse){
                 $log.error('Error while fetching Books ', errResponse);
@@ -25,6 +33,28 @@ angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'Lis
         );
     }
 
+	$scope.submit = () => {
+		var newBook = {};
+		newBook.id = $scope.id;
+		newBook.title = $scope.title;
+		newBook.series = $scope.series;
+		newBook.author = $scope.author;
+		newBook.illustrator = $scope.illustrator;
+		newBook.genre = $scope.genre;
+		postBook(newBook);
+	}
+
+	function postBook(book){
+		ListService.createBook(book)
+			.then(
+			function(d){
+				$scope.books.push(d);
+			},
+			function(errResponse){
+                $log.error('Error while creating Book ', errResponse);
+            }	
+		);
+	}
 
 	function searchForBookById(){
 		ListService.searchForBookById(id)
@@ -94,9 +124,9 @@ angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'Lis
     function edit(book){
     	var id = book.id;
         $log.log('id to be edited', id);
-        for(var i = 0; i < self.books.length; i++){
-            if(self.books[i].id === id) {
-                self.book = angular.copy(self.books[i]);
+        for(var i = 0; i < $scope.books.length; i++){
+            if($scope.books[i].id === id) {
+                self.book = angular.copy($scope.books[i]);
                 break;
             }
         }
@@ -113,7 +143,7 @@ angular.module('myApp').controller('RestListController', ['$scope', '$log' ,'Lis
 
 
     function reset(){
-        self.book={id: null, title: '', author: '', genre: ''};
+        self.book={id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
         $scope.myForm.$setPristine();
     }
 
