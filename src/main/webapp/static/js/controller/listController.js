@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListService', function($scope, $log, ListService) {
+angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListService', function($scope, $log, ListService) {
     var self = this;
     self.book = { id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
     $scope.books = [];
@@ -43,7 +43,6 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
 		newBook.genre = $scope.genre;
 		postBook(newBook);
 	}
-	
 
 	function postBook(book){
 		ListService.createBook(book)
@@ -95,7 +94,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
     function updateBook(book){
         ListService.updateBook(book)
             .then(
-            fetchAllBooks,
+            function(){findAllBooks();},
             function(errResponse){
                 $log.error('Error while updating Book ', errResponse);
             }
@@ -105,7 +104,8 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
     function deleteBook(book){
         ListService.deleteBook(book)
             .then(
-            fetchAllBooks,
+				function(){findAllBooks();}
+            ,
             function(errResponse){
                 $log.error('Error while deleting Book ', errResponse);
             }
@@ -123,12 +123,17 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
         reset();
     }
 
+	$scope.selectBook = function(book) {
+		$log.log(book);
+		self.book = angular.copy(book);
+	}
+
     function edit(book){
     	var id = book.id;
         $log.log('id to be edited', id);
         for(var i = 0; i < $scope.books.length; i++){
             if($scope.books[i].id === id) {
-                self.book = angular.copy($scope.books[i]);
+                $scope.book = angular.copy($scope.books[i]);
                 break;
             }
         }
@@ -137,7 +142,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
     function remove(book){
         $log.log('id to be deleted', book.id);
         //clean form after book is deleted
-        if(self.book.id === book.id) { 
+        if($scope.id === book.id) { 
             reset();
         }
         deleteBook(book);
@@ -145,7 +150,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' ,'ListSer
 
 
     function reset(){
-        self.book={id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
+        $scope.book={id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
         $scope.bookForm.$setPristine();
     }
 

@@ -171,7 +171,7 @@ public class RestListController {
 		}
 
 		bookService.deleteBookById(id);
-		bookService.findAllBooks();
+		
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 

@@ -21,7 +21,9 @@
         <label>Illustrator:  <input ng-model="illustrator" type="text" name="illustrator" /></label><br>
         <label>Genre:  <input ng-model="genre" type="text" name="genre" /></label><br>
         
-        <input type="submit" ng-click="submit()" value="Submit new book" />
+        <input ng-if="!ctrl.book.id" type="submit" ng-click="submit()" value="Submit new book" />
+		<input ng-if="ctrl.book.id" type="submit" ng-click="edit(book)" value="Edit book" />
+
         
         <p style="color: red">${error}</p>
     </form><br>
@@ -49,7 +51,7 @@
 				<td>{{book.illustrator}}</td>
 				<td>{{book.genre}}</td>
 				<td>
-					<button type="button" ng-click="ctrl.edit(book)" class="btn btn-success custom-width">Edit</button>
+					<button type="button" ng-click="ctrl.selectBook(book)" class="btn btn-success custom-width">Edit</button>
                     <button type="button" ng-click="ctrl.remove(book)" class="btn btn-danger custom-width">Remove</button>
                 </td>
 			</tr>
