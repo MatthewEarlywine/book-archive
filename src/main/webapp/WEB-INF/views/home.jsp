@@ -17,13 +17,6 @@
 	<button>See our list of books</button>
 	</a><br><br>
 	
-	<a href="/api/favoritebooks/findBook">
-	<button>Find a book</button>
-	</a><br><br>
-	
-	<a href="/api/favoritebooks/addBook">
-	<button>Add a new book</button>
-	</a>
 </div>
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
       <script src="/static/js/app.js"></script>

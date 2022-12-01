@@ -9,6 +9,8 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
     self.edit = edit;
     self.remove = remove;
     self.reset = reset;
+    self.selectBook = selectBook;
+    self.update = update;
 	
 	// form variables
 	
@@ -34,6 +36,11 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
     }
 
 	$scope.submit = () => {
+		if((($scope.title == '') || ($scope.title == null)) || (( $scope.author == '') || ($scope.author == null))){
+			$log.log("Both Title and Author fields are required");
+			reset();
+			return;
+		}
 		var newBook = {};
 		newBook.id = $scope.id;
 		newBook.title = $scope.title;
@@ -45,10 +52,12 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
 	}
 
 	function postBook(book){
+		
 		ListService.createBook(book)
 			.then(
 			function(d){
 				$scope.books.push(d);
+				$log.log('Saving New Book with ID: ', self.book.id);
 				reset();
 			},
 			function(errResponse){
@@ -91,10 +100,17 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
         );
     }
 
-    function updateBook(book){
-        ListService.updateBook(book)
+    function updateBook(book, id){
+
+		$log.log('Updating book', book);
+		const i = $scope.books.indexOf(book);
+		
+        ListService.updateBook(book, id)
             .then(
-            function(){findAllBooks();},
+            function(d){
+				$scope.books.splice(i, 1, d);
+				$log.log('Updated book', book);
+			},
             function(errResponse){
                 $log.error('Error while updating Book ', errResponse);
             }
@@ -121,20 +137,37 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
             $log.log('Book updated with id ', self.book.id);
         }
         reset();
-    }
+    } 
 
-	$scope.selectBook = function(book) {
-		$log.log(book);
-		self.book = angular.copy(book);
+	function selectBook(book) {
+		console.log(book);
+		$log.log('id to be selected', book.id);
+		$scope.id = book.id;
+		$scope.title = book.title;
+		$scope.series = book.series;
+		$scope.author = book.author;
+		$scope.illustrator = book.illustrator;
+		$scope.genre = book.genre;
+		
+		
 	}
 
     function edit(book){
     	var id = book.id;
-        $log.log('id to be edited', id);
-        for(var i = 0; i < $scope.books.length; i++){
-            if($scope.books[i].id === id) {
-                $scope.book = angular.copy($scope.books[i]);
-                break;
+        for(const book of $scope.books){
+            if(book.id === id) {
+                $scope.id = book.id;
+				$scope.title = book.title;
+				$scope.series = book.series;
+				$scope.author = book.author;
+				$scope.illustrator = book.illustrator;
+				$scope.genre = book.genre;
+				
+				$log.log(book);
+				$log.log('id to be edited', book.id);
+				
+				self.book.id = $scope.id;
+				$log.log(self.book.id);
             }
         }
     }
@@ -150,8 +183,28 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
 
 
     function reset(){
-        $scope.book={id: null, title: '', series: '', author: '', illustrator: '', genre: ''};
+		
+        $scope.id = '';
+		$scope.title = '';
+		$scope.series = '';
+		$scope.author = '';
+		$scope.illustrator = '';
+		$scope.genre = '';
         $scope.bookForm.$setPristine();
     }
+    
+    function update(book) {
+		console.log('ID to be updated: ', self.book.id);
+		self.book = { id: $scope.id, title: $scope.title, series: $scope.series, author: $scope.author, illustrator: $scope.illustrator, genre: $scope.genre};
+				if(((self.book.title == '') || (self.book.title == null)) || ((self.book.author == '') || (self.book.author == null))){
+			$log.log("Both Title and Author fields are required");
+			reset();
+			return;
+		}
+		updateBook(self.book, self.book.id);
+		console.log(self.book);
+		console.log('Book updated with id ', self.book.id);
+		reset();
+	};
 
 }]);

@@ -14,7 +14,7 @@
 <div align="center" class="belch">
 	
 	<h2>List of Favorite Books</h2><BR>
-    <form align="center" name="bookForm">
+    <form align="center" name="bookForm" ng-model="bookForm">
     <br><br><label>Title:  <input ng-model="title" type="text" name="title" required="required"/></label><br>
     	<label>Series:  <input ng-model="series" type="text" name="series"/></label><br>
         <label>Author:  <input ng-model="author" type="text" name="author" required="required"/></label><br>
@@ -22,7 +22,7 @@
         <label>Genre:  <input ng-model="genre" type="text" name="genre" /></label><br>
         
         <input ng-if="!ctrl.book.id" type="submit" ng-click="submit()" value="Submit new book" />
-		<input ng-if="ctrl.book.id" type="submit" ng-click="edit(book)" value="Edit book" />
+		<input ng-if="ctrl.book.id" type="submit" ng-click="ctrl.update(book)" value="Update book" />
 
         
         <p style="color: red">${error}</p>
@@ -51,7 +51,7 @@
 				<td>{{book.illustrator}}</td>
 				<td>{{book.genre}}</td>
 				<td>
-					<button type="button" ng-click="ctrl.selectBook(book)" class="btn btn-success custom-width">Edit</button>
+					<button type="button" ng-click="ctrl.edit(book)" class="btn btn-success custom-width">Edit</button>
                     <button type="button" ng-click="ctrl.remove(book)" class="btn btn-danger custom-width">Remove</button>
                 </td>
 			</tr>

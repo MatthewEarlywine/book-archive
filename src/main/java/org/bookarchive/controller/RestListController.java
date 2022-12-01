@@ -153,7 +153,9 @@ public class RestListController {
 		}
 
 		currentBook.setTitle(book.getTitle());
+		currentBook.setSeries(book.getSeries());
 		currentBook.setAuthor(book.getAuthor());
+		currentBook.setIllustrator(book.getIllustrator());
 		currentBook.setGenre(book.getGenre());
 
 		bookService.updateBook(currentBook);

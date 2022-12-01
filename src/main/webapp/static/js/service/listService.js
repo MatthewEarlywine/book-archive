@@ -62,7 +62,7 @@ function ListServiceFactory($http, $log) {
 
 
     function updateBook(book) {
-        return $http.put(REST_SERVICE_URI + book.id, book).then(
+        return $http.put('/api/favoritebooks/' + book.id, book).then(
             function (response) {
                 return response.data
             },
