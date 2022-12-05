@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class ListServiceImpl implements ListService {
 
 	@Autowired 				
-	
 	private DAO bookRepo; 	
 	
 	public List<Book> findAllBooks() {

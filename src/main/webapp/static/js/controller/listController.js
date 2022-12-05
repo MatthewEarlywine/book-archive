@@ -11,6 +11,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
     self.reset = reset;
     self.selectBook = selectBook;
     self.update = update;
+    self.check = check;
 	
 	// form variables
 	
@@ -20,8 +21,10 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
 	$scope.author='';
 	$scope.illustrator='';
 	$scope.genre='';
+	$scope.answer='';
 
     findAllBooks();
+	
 
     function findAllBooks(){
         ListService.fetchAllBooks()
@@ -51,14 +54,44 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
 		postBook(newBook);
 	}
 
+/*	$scope.check = () => {
+		for(const book of $scope.books){
+			if(($scope.title == book.title) && ($scope.author == book.author)){
+				$log.log('This book is already recorded in the archive.');
+				System.out.println('This book is already recorded in the archive.')
+			} else {
+				$log.log('There is no record of this book in the archive.');
+				System.out.println('There is no record of this book in the archive.')
+			}
+		}
+	} */
+	
+	function check(book){
+		
+		self.book = { id: $scope.id, title: $scope.title, series: $scope.series, author: $scope.author, illustrator: $scope.illustrator, genre: $scope.genre};
+		ListService.doesBookExist(self.book)
+			.then(
+			function(d){
+				$scope.answer = d;
+			},	
+			function(errResponse){
+                $log.error('Error while fetching answer ', errResponse);
+            }
+		);
+	}
+	
 	function postBook(book){
 		
 		ListService.createBook(book)
 			.then(
 			function(d){
-				$scope.books.push(d);
-				$log.log('Saving New Book with ID: ', self.book.id);
+				if(d != null){
+					$scope.books.push(d);
 				reset();
+				} else {
+					reset();
+				}
+
 			},
 			function(errResponse){
                 $log.error('Error while creating Book ', errResponse);
@@ -93,7 +126,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
     function createBook(book){
         ListService.createBook(book)
             .then(
-            fetchAllBooks,
+            findAllBooks(),
             function(errResponse){
                 $log.error('Error while creating Book ', errResponse);
             }
@@ -109,6 +142,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
             .then(
             function(d){
 				$scope.books.splice(i, 1, d);
+				findAllBooks();
 				$log.log('Updated book', book);
 			},
             function(errResponse){
@@ -196,7 +230,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
     function update(book) {
 		console.log('ID to be updated: ', self.book.id);
 		self.book = { id: $scope.id, title: $scope.title, series: $scope.series, author: $scope.author, illustrator: $scope.illustrator, genre: $scope.genre};
-				if(((self.book.title == '') || (self.book.title == null)) || ((self.book.author == '') || (self.book.author == null))){
+		if(((self.book.title == '') || (self.book.title == null)) || ((self.book.author == '') || (self.book.author == null))){
 			$log.log("Both Title and Author fields are required");
 			reset();
 			return;
@@ -204,6 +238,7 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
 		updateBook(self.book, self.book.id);
 		console.log(self.book);
 		console.log('Book updated with id ', self.book.id);
+		self.book.id = null;
 		reset();
 	};
 

@@ -24,12 +24,6 @@ public class DAOImpl implements DAO {
 		Session s = sessionFactory.getCurrentSession();
 		return s.get(Book.class, id);
 	}
-	
-//	@Override
-//    public Task findTaskById(Long id) {
-//        Session currentSession = sessionFactory.getCurrentSession();
-//        return currentSession.get(Task.class, id);
-//    }
 
 	public Book findByTitle(String title) {
 		Session s = sessionFactory.getCurrentSession();
@@ -65,22 +59,16 @@ public class DAOImpl implements DAO {
 		return query.getResultList();
 	}
 	
-//	@SuppressWarnings("unchecked")
-//    @Override
-//    public List<Task> listTasks() {
-//        Session session = sessionFactory.getCurrentSession();
-//        CriteriaBuilder cb = session.getCriteriaBuilder();
-//        CriteriaQuery <Task> cq = cb.createQuery(Task.class);
-//        Root<Task> root = cq.from(Task.class);
-//        cq.select(root);
-//        Query query = session.createQuery(cq);
-//        return query.getResultList();
-//    }
 
 	public boolean doesBookExist(Book book) {
-		Query query = sessionFactory.openSession().createQuery("FROM Book b WHERE b.title = :title");
+		System.out.println(book.getTitle());
+		Query query = sessionFactory.openSession().createQuery("FROM Book b WHERE b.title = :title and b.author = :author and b.illustrator = :illustrator");
 		query.setParameter("title", book.getTitle());
+		query.setParameter("author", book.getAuthor());
+		query.setParameter("illustrator", book.getIllustrator());
+		System.out.println(book.getTitle());
 		List<?> pList = query.getResultList();
+		System.out.println(pList.size());
 		if (!pList.isEmpty()) {
 			return true;
 		}

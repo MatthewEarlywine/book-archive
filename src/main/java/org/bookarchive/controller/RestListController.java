@@ -51,6 +51,14 @@ public class RestListController {
 		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "/checkBook", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> checkBook(Book book){
+		System.out.println("Checking if book exists REST.");
+		System.out.println(book.getTitle() + " 1");
+		Boolean answer = bookService.doesBookExist(book);
+		return new ResponseEntity<Boolean>(answer, HttpStatus.OK);
+	}
+	
 //	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 //	public ResponseEntity<?> getBook(@PathVariable("id") Long id) {
 //		logger.debug("Fetching Book with id " + id);
@@ -97,7 +105,12 @@ public class RestListController {
 //	}
 	
 	@PostMapping(value = "/saveBook")
-	public ResponseEntity<Book> saveBook(@RequestBody Book book){
+	public ResponseEntity<?> saveBook(@RequestBody Book book){
+        if (bookService.doesBookExist(book)) {
+            logger.debug("A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed");
+            System.out.println("A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed");
+            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+        }
 		bookService.saveBook(book);
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
@@ -141,7 +154,7 @@ public class RestListController {
 //
 //	}
 
-	@PutMapping(value = "{id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody Book book) {
 		logger.debug("Updating Book " + id);
 

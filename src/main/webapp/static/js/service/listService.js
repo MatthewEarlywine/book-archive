@@ -10,8 +10,9 @@ function ListServiceFactory($http, $log) {
     let factory = {
         fetchAllBooks: fetchAllBooks,
         createBook: createBook,
-        updateBook:updateBook,
-        deleteBook:deleteBook
+        updateBook: updateBook,
+        deleteBook: deleteBook,
+        doesBookExist: doesBookExist, 
     };
 
     return factory;
@@ -26,6 +27,20 @@ function ListServiceFactory($http, $log) {
             }
         );
     }
+    
+    function doesBookExist(book){
+		$log.log("Checking if book exists JS.");
+		$log.log(book);
+		return $http.get('http://localhost:8081/api/favoritebooks/checkBook', book).then(
+			function (response) {
+				$log.log(response);
+				return response.data;
+			},
+			function (errResponse) {
+				$log.error('Error while checking Book ', errResponse);
+			}
+		);
+	}
     
     function searchForBookById() {
 		return $http.post(REST_SERVICE_URI).then(
