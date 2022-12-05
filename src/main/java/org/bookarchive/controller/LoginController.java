@@ -1,6 +1,8 @@
 package org.bookarchive.controller;
 
 import org.bookarchive.model.LoginId;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@Configuration
+@ComponentScan("org.bookarchive")
 public class LoginController {
 
 	@GetMapping("/")

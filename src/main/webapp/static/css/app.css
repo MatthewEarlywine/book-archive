@@ -3,12 +3,12 @@ html, body {
 	background-color: pink;
 }
 
-h2 {
-	color: pink;
+h2{
+	color: rgb(202, 53, 199);
 }
 
 .belch {
-	background-color: pink;
+	background-color: orange;
 	margin-left: 500px;
 	margin-right: 500px;
 }

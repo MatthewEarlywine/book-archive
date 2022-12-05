@@ -1,10 +1,14 @@
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\model\LoginId.java
+C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\configuration\HibernateConfig.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\model\Author.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\service\ListService.java
+C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\package-info.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\controller\LoginController.java
+C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\dao\DAO.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\configuration\BookListConfig.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\controller\RestListController.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\controller\HomeController.java
+C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\dao\DAOImpl.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\service\ListServiceImpl.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\model\Book.java
 C:\Users\matthew.earlywine\git\book-archive\src\main\java\org\bookarchive\controller\BookController.java
