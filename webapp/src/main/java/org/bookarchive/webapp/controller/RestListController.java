@@ -49,7 +49,7 @@ public class RestListController {
 		
 		List<Object> bookList = Arrays.stream(books.getBody()).collect(Collectors.toList());
 		
-		mv.addObject("bookList", bookList);
+		//mv.addObject("bookList", bookList);
 		
 //		ModelAndView allBooks = new ModelAndView.add("bookList", new Map <"books", ResponseEntity<BookView[]>> , HttpStatus.OK);
 		
@@ -79,45 +79,45 @@ public class RestListController {
 //		Boolean answer = bookManager.doesBookExist(book);
 //		return new ResponseEntity<Boolean>(answer, HttpStatus.OK);
 //	}
-	
-	@GetMapping(value = "test")
-	public ResponseEntity<String> testMethod(){
-		return new ResponseEntity<String>("test", HttpStatus.OK);
-	}
-	
-	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBookById(@PathVariable("id") Long id){
-		
-		return bookManager.findById(id);
-	}
-
-	
-	@GetMapping(value = "title/{title}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBookByTitle(@PathVariable("title") String title){
-
-		return bookManager.findByTitle(title);
-	}
-	
-	@PostMapping(value = "saveBook")
-	public ResponseEntity<?> saveBook(@RequestBody BookView book){
-		
-		return bookManager.saveBook(book);
-	}
-
-	@PutMapping(value = "{id}")
-	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody BookView book) {
-		logger.debug("Updating Book " + id);
-		
-		return bookManager.updateBook(book);
-	}
-
-	@DeleteMapping(value = "delete/{id}")
-	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
-		logger.debug("Fetching & Deleting Book with id " + id);
-
-		bookManager.deleteBookById(id);
-		
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	}
+//	
+//	@GetMapping(value = "test")
+//	public ResponseEntity<String> testMethod(){
+//		return new ResponseEntity<String>("test", HttpStatus.OK);
+//	}
+//	
+//	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<?> getBookById(@PathVariable("id") Long id){
+//		
+//		return bookManager.findById(id);
+//	}
+//
+//	
+//	@GetMapping(value = "title/{title}", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<?> getBookByTitle(@PathVariable("title") String title){
+//
+//		return bookManager.findByTitle(title);
+//	}
+//	
+//	@PostMapping(value = "saveBook")
+//	public ResponseEntity<?> saveBook(@RequestBody BookView book){
+//		
+//		return bookManager.saveBook(book);
+//	}
+//
+//	@PutMapping(value = "{id}")
+//	public ResponseEntity<?> updateBook(@PathVariable("id") Long id, @RequestBody BookView book) {
+//		logger.debug("Updating Book " + id);
+//		
+//		return bookManager.updateBook(book);
+//	}
+//
+//	@DeleteMapping(value = "delete/{id}")
+//	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
+//		logger.debug("Fetching & Deleting Book with id " + id);
+//
+//		bookManager.deleteBookById(id);
+//		
+//		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//	}
 
 }

@@ -39,7 +39,7 @@ public class ListServiceImpl implements ListService {
 		return bookRepo.findAll();
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings("deprecation") //return Optional<book>? --or-- Catch NullPointerException
 	public Book findById(Long id) {
 		return bookRepo.getById(id);
 	}
