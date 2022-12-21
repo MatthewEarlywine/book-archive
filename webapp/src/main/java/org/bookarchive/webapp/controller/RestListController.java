@@ -42,7 +42,9 @@ public class RestListController {
 //		return mv;
 //	}
 
-	@GetMapping
+//  -----  Just the views that frame the data; js service and controller call and organize data from Back End --------------
+	
+	@GetMapping          
 	public ModelAndView getAllBooks(){
 
 		ResponseEntity<BookView[]> books = bookManager.findAllBooks();
