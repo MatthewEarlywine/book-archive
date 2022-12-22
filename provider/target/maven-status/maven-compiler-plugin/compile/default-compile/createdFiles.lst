@@ -1,0 +1,7 @@
+org\archive\provider\service\ListService.class
+org\archive\provider\entity\Book.class
+org\archive\provider\service\ListServiceImpl.class
+org\archive\provider\controller\RestListController.class
+org\archive\provider\repository\BookDao.class
+org\archive\provider\ArchiveApplication.class
+org\archive\provider\repository\package-info.class

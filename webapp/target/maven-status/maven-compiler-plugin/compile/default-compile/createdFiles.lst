@@ -1,0 +1,16 @@
+org\bookarchive\webapp\manager\ListManagerImpl.class
+org\bookarchive\webapp\model\BookView.class
+org\bookarchive\webapp\controller\HomeController.class
+org\bookarchive\webapp\config\package-info.class
+org\bookarchive\webapp\config\BookListConfig.class
+org\bookarchive\webapp\manager\package-info.class
+org\bookarchive\webapp\config\RestTemplateConfig.class
+org\bookarchive\webapp\controller\RestListController.class
+org\bookarchive\webapp\api\Book.class
+org\bookarchive\webapp\api\package-info.class
+org\bookarchive\webapp\model\package-info.class
+org\bookarchive\webapp\controller\package-info.class
+org\bookarchive\webapp\config\BookListInitializer.class
+org\bookarchive\webapp\manager\ListManager.class
+org\bookarchive\webapp\model\LoginId.class
+org\bookarchive\webapp\controller\LoginController.class
