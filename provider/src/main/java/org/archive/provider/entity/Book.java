@@ -42,16 +42,6 @@ public class Book {
 		BeanUtils.copyProperties(book, this, Book.class);
 	}
 	
-//	public static Book convert(Book book) {
-//		if (book == null) { 
-//			return null;
-//		}
-//		if (book instanceof Book) {
-//			return (Book) book;
-//		}
-//		return new Book(book);
-//	}
-	
 	public Long getId() {
 		return id;
 	}

@@ -30,23 +30,12 @@ import org.springframework.web.servlet.ModelAndView;
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/favoritebooks/")
-//@Configuration
-//@ComponentScan("org.bookarchive")
 public class RestListController {
 
 	Logger logger = LoggerFactory.getLogger(RestListController.class);
 
 	@Autowired
 	private ListService bookService;
-
-	
-//	ModelAndView mv = new ModelAndView("bookList");
-//
-//	@GetMapping
-//	public ModelAndView getBookListHome() {
-//			
-//		return mv;
-//	}
 
 	@GetMapping
 	public ResponseEntity<List<Book>> getAllBooks(){
@@ -58,14 +47,6 @@ public class RestListController {
 		return new ResponseEntity<List<Book>>(bookList, HttpStatus.OK);
 	}
 	
-//	@GetMapping(value = "/checkBook", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<Boolean> checkBook(Book book){
-//		System.out.println("Checking if book exists REST.");
-//		System.out.println(book.getTitle() + " 1");
-//		Boolean answer = bookService.doesBookExist(book);
-//		return new ResponseEntity<Boolean>(answer, HttpStatus.OK);
-//	}
-	
 	@GetMapping(value = "test")
 	public ResponseEntity<String> testMethod(){
 		return new ResponseEntity<String>("test", HttpStatus.OK);
@@ -73,7 +54,6 @@ public class RestListController {
 	
 	@GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBookById(@PathVariable("id") Long id){
-		//boolean answer = bookService.findById(id);
 		
         if (bookService.doesIDExist(id)) {
         	Book book = bookService.findById(id);
@@ -81,18 +61,6 @@ public class RestListController {
         }
 		
 		return new ResponseEntity<String>("No book with ID: " + id + " was found", HttpStatus.CONFLICT);
-	}
-	
-	@PostLoad
-	public void postLoad(Book book){
-	    try {
-	        if(book != null && book.getId() == 0){
-	            book = null;
-	        }
-	    }
-	    catch (EntityNotFoundException e){
-	        book = null;
-	    }
 	}
 	
 	@GetMapping(value = "title/{title}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -126,12 +94,6 @@ public class RestListController {
 	@DeleteMapping(value = "delete/{id}")
 	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
 		logger.debug("Fetching & Deleting Book with id " + id);
-
-//		BookImpl book = bookService.findById(id);
-//		if (book == null) {
-//			logger.debug("Unable to delete. Book with id " + id + " not found");
-//			return new ResponseEntity<BookImpl>(HttpStatus.NO_CONTENT);
-//		}
 
 		bookService.deleteBookById(id);
 		

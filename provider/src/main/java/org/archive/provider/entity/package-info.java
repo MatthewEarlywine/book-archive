@@ -1,1 +1,1 @@
-package org.archive2.provider.entity;
+package org.archive.provider.entity;

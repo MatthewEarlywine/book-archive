@@ -1,1 +1,1 @@
-package org.archive2.provider.model;
+package org.archive.provider.model;

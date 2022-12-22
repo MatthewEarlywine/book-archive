@@ -1,1 +1,1 @@
-package org.archive2.provider.api;
+package org.archive.provider.api;
