@@ -1,8 +1,6 @@
 package org.archive.provider.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -39,9 +37,9 @@ public class ListServiceImpl implements ListService {
 		return bookRepo.findAll();
 	}
 
-	@SuppressWarnings("deprecation")
+	@Override
 	public Book findById(Long id) {
-		return bookRepo.getById(id);
+		return bookRepo.getReferenceById(id);
 	}
 	
 	@Override
@@ -59,8 +57,9 @@ public class ListServiceImpl implements ListService {
 		return bookRepo.save(book);
 	}
 
-	public void deleteBookById(Long id) {
+	public boolean deleteBookById(Long id) {
 		bookRepo.deleteById(id);
+		return true;
 	}
 
 	@Override
@@ -73,21 +72,19 @@ public class ListServiceImpl implements ListService {
 		
 		List<?> pList = query.getResultList();
 		
-		if (!pList.isEmpty()) {
+		if(!pList.isEmpty()) {
 			return true;
 		}
 		return false;
 	}
 	
-	@Override
+	@Override // what if search for id of record that doesn't exist?
 	public boolean doesIDExist(Long id) {
-		List<Book> list = bookRepo.findAll();
-		for(Book b : list) {
-			if (b.getId() == id) {
-				return true;
-			}
+		if(bookRepo.getReferenceById(id) != null) {
+			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 	
 }

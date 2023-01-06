@@ -36,7 +36,7 @@ public class Book {
 	@Column(name = "GENRE")
 	private String genre;
 
-	Book() {}
+	public Book() {}
 	
 	Book(Book book){
 		BeanUtils.copyProperties(book, this, Book.class);

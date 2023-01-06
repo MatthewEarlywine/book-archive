@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="9" total="10" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-01-06T15:56:19 CST" name="Default suite" finished-at="2023-01-06T15:56:20 CST" duration-ms="807">
+    <groups>
+    </groups>
+    <test started-at="2023-01-06T15:56:19 CST" name="Default test" finished-at="2023-01-06T15:56:20 CST" duration-ms="807">
+      <class name="org.archive.provider.ListServiceImplTest">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:19 CST" name="springTestContextBeforeTestClass" finished-at="2023-01-06T15:56:19 CST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:19 CST" name="springTestContextPrepareTestInstance" finished-at="2023-01-06T15:56:19 CST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:19 CST" name="setUp" finished-at="2023-01-06T15:56:20 CST" duration-ms="567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:20 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-06T15:56:20 CST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.givenLongValue_doesIdExistTest_returnBooleanValue()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="givenLongValue_doesIdExistTest_returnBooleanValue()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:20 CST" name="givenLongValue_doesIdExistTest_returnBooleanValue" finished-at="2023-01-06T15:56:20 CST" duration-ms="21" status="FAIL">
+          <exception class="java.lang.ClassCastException">
+            <message>
+              <![CDATA[class java.lang.Boolean cannot be cast to class org.archive.provider.entity.Book (java.lang.Boolean is in module java.base of loader 'bootstrap'; org.archive.provider.entity.Book is in unnamed module of loader 'app')]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ClassCastException: class java.lang.Boolean cannot be cast to class org.archive.provider.entity.Book (java.lang.Boolean is in module java.base of loader 'bootstrap'; org.archive.provider.entity.Book is in unnamed module of loader 'app')
+at org.archive.provider.repository.BookDao$MockitoMock$RxDL7Pxb.getReferenceById(Unknown Source)
+at org.archive.provider.repository.BookDao$MockitoMock$RxDL7Pxb.getReferenceById(Unknown Source)
+at org.archive.provider.service.ListServiceImpl.doesIDExist(ListServiceImpl.java:83)
+at org.archive.provider.ListServiceImplTest.givenLongValue_doesIdExistTest_returnBooleanValue(ListServiceImplTest.java:135)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:258)
+at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:186)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:272)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:669)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:806)
+at org.testng.TestRunner.run(TestRunner.java:601)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ClassCastException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- givenLongValue_doesIdExistTest_returnBooleanValue -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:20 CST" name="tearDown" finished-at="2023-01-06T15:56:20 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:20 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-06T15:56:20 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.givenLongValue_doesIdExistTest_returnBooleanValue()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:20 CST" name="tearDown" finished-at="2023-01-06T15:56:20 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:org.archive.provider.ListServiceImplTest@4bd31064]" started-at="2023-01-06T15:56:20 CST" name="springTestContextAfterTestClass" finished-at="2023-01-06T15:56:20 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- org.archive.provider.ListServiceImplTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
