@@ -129,17 +129,25 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		
 		Boolean truth = true;
 		
-		Mockito.when(service.doesIDExist(1L)).thenReturn(true);
-		Mockito.when(service.doesIDExist(6L)).thenReturn(false);
+		Mockito.when(mockDao.getReferenceById(1L)).thenReturn(book); 
+		Mockito.when(mockDao.getReferenceById(6L)).thenReturn(null);
 		
-		System.out.println(service.doesIDExist(6L));
-		System.out.println(service.doesIDExist(1L));
+		Object sampleObject1 = mockDao.getReferenceById(6L);  // ClassCastException kicks in here
+		Object sampleObject2 = mockDao.getReferenceById(1L);
 		
-		Boolean answer = service.doesIDExist(6L);		
-		assertNotEquals(answer, truth);
+		System.out.println(String.valueOf(sampleObject1));
+		System.out.println(String.valueOf(sampleObject2));
+		
+		Book answer = mockDao.getReferenceById(6L);		
+		assertEquals(null, sampleObject1);
 
-		answer = service.doesIDExist(1L);
-		assertTrue(answer);
+		answer = mockDao.getReferenceById(1L);
+		assertEquals(book, answer);
+		assertTrue(service.doesIDExist(1L));
+		assertFalse(service.doesIDExist(6L));
+		
+		System.out.println(service.doesIDExist(1L));
+		System.out.println(service.doesIDExist(6L));
 		
 	}
 	
