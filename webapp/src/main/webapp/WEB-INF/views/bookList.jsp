@@ -21,6 +21,8 @@
         <label>Illustrator:  <input ng-model="illustrator" type="text" name="illustrator" /></label><br>
         <label>Genre:  <input ng-model="genre" type="text" name="genre" /></label><br>
         
+        <br><br><input type="submit" ng-click="submit()" value="Look for this book" />
+        
         <br><br><input ng-if="!ctrl.book.id" type="submit" ng-click="submit()" value="Submit new book" />
 		<input ng-if="ctrl.book.id" type="submit" ng-click="ctrl.update(book)" value="Update book" />
 

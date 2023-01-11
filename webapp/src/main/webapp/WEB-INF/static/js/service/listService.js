@@ -88,7 +88,7 @@ function ListServiceFactory($http, $log) {
     }
 
     function deleteBook(book) {
-        return $http.delete(REST_SERVICE_URI + "/delete/" + book.id).then(
+        return $http.delete(REST_SERVICE_URI + "delete/" + book.id).then(
             function (response) {
                 return response.data
             },
