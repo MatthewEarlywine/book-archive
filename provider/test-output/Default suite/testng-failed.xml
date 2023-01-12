@@ -5,13 +5,13 @@
     <classes>
       <class name="org.archive.provider.ListServiceImplTest">
         <methods>
-          <include name="givenLongValue_doesIdExistTest_returnBooleanValue"/>
           <include name="springTestContextBeforeTestClass"/>
           <include name="springTestContextBeforeTestMethod"/>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextPrepareTestInstance"/>
-          <include name="tearDown"/>
           <include name="springTestContextAfterTestMethod"/>
+          <include name="tearDown"/>
+          <include name="givenBookParameters_doesBookExist_returnBooleanValue"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- org.archive.provider.ListServiceImplTest -->

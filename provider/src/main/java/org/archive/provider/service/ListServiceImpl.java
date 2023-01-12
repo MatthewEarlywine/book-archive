@@ -65,17 +65,28 @@ public class ListServiceImpl implements ListService {
 	@Override
 	public boolean doesBookExist(Book book) {
 		
-		Query query = sessionFactory.openSession().createQuery("FROM Book b WHERE b.title = :title and b.author = :author and b.illustrator = :illustrator");
-		query.setParameter("title", book.getTitle());
-		query.setParameter("author", book.getAuthor());
-		query.setParameter("illustrator", book.getIllustrator());
+//		Query query = sessionFactory.openSession().createQuery("FROM Book b WHERE b.title = :title and b.author = :author and b.illustrator = :illustrator");
+//		query.setParameter("title", book.getTitle());
+//		query.setParameter("author", book.getAuthor());
+//		query.setParameter("illustrator", book.getIllustrator());
+//		
+//		List<?> pList = query.getResultList();
+//		
+//		if(!pList.isEmpty()) {
+//			return true;
+//		}
+//		return false;
 		
-		List<?> pList = query.getResultList();
+		String title = book.getTitle();
+		String author = book.getAuthor();
+		String illustrator = book.getIllustrator();
 		
-		if(!pList.isEmpty()) {
+		if(bookRepo.findByTitleAndAuthorAndIllustrator(book.getTitle(), book.getAuthor(), book.getIllustrator()) != null) {
 			return true;
+		}	else {
+			return false;
 		}
-		return false;
+		
 	}
 	
 	@Override // what if search for id of record that doesn't exist?

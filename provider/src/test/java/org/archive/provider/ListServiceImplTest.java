@@ -1,12 +1,13 @@
 package org.archive.provider;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.*;
 
 import org.archive.provider.entity.Book;
 import org.archive.provider.repository.BookDao;
 import org.archive.provider.service.ListServiceImpl;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -18,6 +19,8 @@ import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -33,7 +36,7 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		book.setTitle("Dracula");
 		book.setAuthor("Bram Stoker");
         book.setSeries("Horror Classics");
-        book.setIllustrator("Karfax");
+        book.setIllustrator("Carfax");
         book.setGenre("Horror");
         
         return book;
@@ -41,6 +44,9 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 	
 	@Mock
 	private BookDao mockDao;
+	
+	@Mock
+	public SessionFactory sessionFactory;
 	
 	@InjectMocks
 	private ListServiceImpl service;
@@ -149,6 +155,39 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		System.out.println(service.doesIDExist(1L));
 		System.out.println(service.doesIDExist(6L));
 		
+	}
+	
+	@Test
+	public void givenBookParameters_doesBookExist_returnBooleanValue() {
+		List<Book> books = new ArrayList<>();
+		Book book1 = makeTestBook(1l);
+		books.add(book1);
+		Book book2 = makeTestBook(2L);
+		book2.setIllustrator("");
+		
+		
+		Mockito.when(mockDao.findByTitleAndAuthorAndIllustrator("Dracula", "Bram Stoker", "Carfax")).thenReturn(book1); 
+		Mockito.when(mockDao.findByTitleAndAuthorAndIllustrator("Dracula", "Bram Stoker", "")).thenReturn(null);
+		
+		assertEquals(book1, mockDao.findByTitleAndAuthorAndIllustrator("Dracula", "Bram Stoker", "Carfax"));
+		assertNotEquals(book1, mockDao.findByTitleAndAuthorAndIllustrator("Dracula", "Bram Stoker", ""));
+		
+		assertNotEquals(book1, book2);
+		
+		Object sampleObject1 = mockDao.findByTitleAndAuthorAndIllustrator("Dracula", "Bram Stoker", "Carfax");
+		Object sampleObject2 = mockDao.findByTitleAndAuthorAndIllustrator("Dracula", "Bram Stoker", "");
+		
+		assertEquals(null, sampleObject2);
+		System.out.println(sampleObject1);
+		System.out.println(book1.getTitle());
+		System.out.println(book1.getAuthor());
+		System.out.println(book1.getIllustrator());
+		System.out.println(service.doesBookExist(book1));
+		assertEquals(book1, sampleObject1);
+		assertEquals(true, service.doesBookExist(book1));
+		
+		
+
 	}
 	
 	@Test
