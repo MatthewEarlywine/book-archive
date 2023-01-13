@@ -185,7 +185,7 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		System.out.println(service.doesBookExist(book1));
 		assertEquals(book1, sampleObject1);
 		assertEquals(true, service.doesBookExist(book1));
-		
+		assertEquals(false, service.doesBookExist(book2));
 		
 
 	}
@@ -233,7 +233,7 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		when(service.updateBook(any())).thenReturn(updatedBook);
 		when(mockDao.findById(any())).thenReturn(Optional.of(updatedBook));
 		
-		assertEquals(book.getIllustrator(), "Karfax");
+		assertEquals(book.getIllustrator(), "Carfax");
 			
 		updatedBook = book;
 		updatedBook.setIllustrator("Bonny Beaux");
@@ -244,7 +244,7 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		
 		updatedBook.setIllustrator("New House of Karfax");
 		
-		assertNotEquals(updatedBook.getIllustrator(), "Karfax");
+		assertNotEquals(updatedBook.getIllustrator(), "Carfax");
 		assertNotEquals(updatedBook.getIllustrator(), "Bonny Beaux");
 		assertEquals(book.getIllustrator(), "New House of Karfax");
 		assertEquals(updatedBook, book);		

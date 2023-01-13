@@ -11,7 +11,7 @@
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
           <include name="tearDown"/>
-          <include name="givenBookParameters_doesBookExist_returnBooleanValue"/>
+          <include name="updateBookRecord_success"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- org.archive.provider.ListServiceImplTest -->

@@ -1,25 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="10" total="11" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-12T15:36:47 CST" name="Default suite" finished-at="2023-01-12T15:36:48 CST" duration-ms="911">
+  <suite started-at="2023-01-13T07:53:29 CST" name="Default suite" finished-at="2023-01-13T07:53:30 CST" duration-ms="1949">
     <groups>
     </groups>
-    <test started-at="2023-01-12T15:36:47 CST" name="Default test" finished-at="2023-01-12T15:36:48 CST" duration-ms="911">
+    <test started-at="2023-01-13T07:53:29 CST" name="Default test" finished-at="2023-01-13T07:53:30 CST" duration-ms="1949">
       <class name="org.archive.provider.ListServiceImplTest">
-        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:47 CST" name="springTestContextBeforeTestClass" finished-at="2023-01-12T15:36:47 CST" duration-ms="12" status="PASS">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:29 CST" name="springTestContextBeforeTestClass" finished-at="2023-01-13T07:53:29 CST" duration-ms="30" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:47 CST" name="springTestContextPrepareTestInstance" finished-at="2023-01-12T15:36:47 CST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="143" status="PASS">
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:29 CST" name="springTestContextPrepareTestInstance" finished-at="2023-01-13T07:53:29 CST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="428" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:47 CST" name="setUp" finished-at="2023-01-12T15:36:48 CST" duration-ms="617" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:29 CST" name="setUp" finished-at="2023-01-13T07:53:30 CST" duration-ms="1174" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:48 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-12T15:36:48 CST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="7" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.deleteBook_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="deleteBook_success()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="deleteBook_success" finished-at="2023-01-13T07:53:30 CST" duration-ms="50" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteBook_success -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.deleteBook_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findAllBooksEmptyListTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="findAllBooksEmptyListTest()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="findAllBooksEmptyListTest" finished-at="2023-01-13T07:53:30 CST" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findAllBooksEmptyListTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findAllBooksEmptyListTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.findAllBooksTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="findAllBooksTest()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="findAllBooksTest" finished-at="2023-01-13T07:53:30 CST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findAllBooksTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.findAllBooksTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findBadId_ReturnNull()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="findBadId_ReturnNull()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="findBadId_ReturnNull" finished-at="2023-01-13T07:53:30 CST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findBadId_ReturnNull -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findBadId_ReturnNull()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.findById_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="findById_success()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="findById_success" finished-at="2023-01-13T07:53:30 CST" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findById_success -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.findById_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findByTitle_failure()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="findByTitle_failure()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="findByTitle_failure" finished-at="2023-01-13T07:53:30 CST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findByTitle_failure -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findByTitle_failure()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findByTitle_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="findByTitle_success()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="findByTitle_success" finished-at="2023-01-13T07:53:30 CST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findByTitle_success -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.findByTitle_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,15 +240,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method signature="givenBookParameters_doesBookExist_returnBooleanValue()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:48 CST" name="givenBookParameters_doesBookExist_returnBooleanValue" finished-at="2023-01-12T15:36:48 CST" duration-ms="93" status="PASS">
+        <test-method signature="givenBookParameters_doesBookExist_returnBooleanValue()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="givenBookParameters_doesBookExist_returnBooleanValue" finished-at="2023-01-13T07:53:30 CST" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- givenBookParameters_doesBookExist_returnBooleanValue -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:48 CST" name="tearDown" finished-at="2023-01-12T15:36:48 CST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:48 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-12T15:36:48 CST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -49,11 +259,101 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:48 CST" name="tearDown" finished-at="2023-01-12T15:36:48 CST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.givenLongValue_doesIdExistTest_returnBooleanValue()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="givenLongValue_doesIdExistTest_returnBooleanValue()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="givenLongValue_doesIdExistTest_returnBooleanValue" finished-at="2023-01-13T07:53:30 CST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- givenLongValue_doesIdExistTest_returnBooleanValue -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:org.archive.provider.ListServiceImplTest@5d43661b]" started-at="2023-01-12T15:36:48 CST" name="springTestContextAfterTestClass" finished-at="2023-01-12T15:36:48 CST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.archive.provider.ListServiceImplTest.givenLongValue_doesIdExistTest_returnBooleanValue()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.saveBook_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="saveBook_success()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="saveBook_success" finished-at="2023-01-13T07:53:30 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveBook_success -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.saveBook_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextBeforeTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.updateBookRecord_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="updateBookRecord_success()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="updateBookRecord_success" finished-at="2023-01-13T07:53:30 CST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateBookRecord_success -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestMethod" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void org.archive.provider.ListServiceImplTest.updateBookRecord_success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="tearDown" finished-at="2023-01-13T07:53:30 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:org.archive.provider.ListServiceImplTest@2324bfe7]" started-at="2023-01-13T07:53:30 CST" name="springTestContextAfterTestClass" finished-at="2023-01-13T07:53:30 CST" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
