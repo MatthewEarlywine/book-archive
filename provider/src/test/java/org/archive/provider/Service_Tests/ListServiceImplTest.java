@@ -1,6 +1,6 @@
-package org.archive.provider;
+package org.archive.provider.Service_Tests;
 
-import static org.junit.Assert.*;
+
 
 import org.archive.provider.entity.Book;
 import org.archive.provider.repository.BookDao;
@@ -14,7 +14,11 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.List;

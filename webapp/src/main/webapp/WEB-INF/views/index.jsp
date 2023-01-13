@@ -10,7 +10,7 @@
 <body class="text-center">
 	<form action="login" method="POST">
 		<div align="center">
-			<h2>Book Archive</h2><br>
+			<h2 class="siteTitle">Book Archive</h2><br>
 			<div class="belch">
 			<p>User Name:</p>
 			<input type="text" name="username"><br>
