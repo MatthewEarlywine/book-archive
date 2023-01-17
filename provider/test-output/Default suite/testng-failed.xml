@@ -3,18 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.archive.provider.ListServiceImplTest">
+      <class name="org.archive.provider.Web_Tests.HomePageTests">
         <methods>
-          <include name="springTestContextBeforeTestClass"/>
-          <include name="springTestContextBeforeTestMethod"/>
-          <include name="springTestContextAfterTestClass"/>
-          <include name="springTestContextPrepareTestInstance"/>
-          <include name="springTestContextAfterTestMethod"/>
-          <include name="tearDown"/>
-          <include name="updateBookRecord_success"/>
-          <include name="setUp"/>
+          <include name="getIndexPage"/>
+          <include name="setup"/>
+          <include name="cleanse"/>
         </methods>
-      </class> <!-- org.archive.provider.ListServiceImplTest -->
+      </class> <!-- org.archive.provider.Web_Tests.HomePageTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
