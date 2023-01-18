@@ -28,16 +28,16 @@ public class LoginController {
 	public String submit(Model model, @ModelAttribute("login") LoginId login) {
 
 		if ((login.getUsername().length() < 8) || (login.getPassword().length() < 8)) {
-			model.addAttribute("error", "Both Username and Password must each be at least six (8) characters long");
+			model.addAttribute("error", "Both Username and Password must each be at least eight (8) characters long, no spaces.");
 			return "index";
 		}
 
-		if ((login.getUsername() != null && !login.getUsername().equals(""))
-				&& (login.getPassword() != null && !login.getPassword().equals(""))) {
+		if ((login.getUsername() != null && !login.getUsername().equals("") && !login.getUsername().contains(" "))
+				&& (login.getPassword() != null && !login.getPassword().equals("") && !login.getPassword().contains(" "))) {
 			model.addAttribute("user", login.getUsername().toUpperCase());
 			return "home";
 		} else {
-			model.addAttribute("error", "Please enter username and password");
+			model.addAttribute("error", "Please enter correct username and password");
 			return "index";
 		}
 	}
