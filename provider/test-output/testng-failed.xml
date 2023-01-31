@@ -6,8 +6,8 @@
       <class name="org.archive.provider.Web_Tests.ListPageTests">
         <methods>
           <include name="cleanse"/>
+          <include name="deleteBook"/>
           <include name="setup"/>
-          <include name="addBook_withGoodData"/>
         </methods>
       </class> <!-- org.archive.provider.Web_Tests.ListPageTests -->
     </classes>

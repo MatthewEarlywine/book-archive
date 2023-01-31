@@ -44,15 +44,15 @@
 		<tbody>
 		<div>
 			<tr id="bookList" name="bookList" ng-repeat="book in books">
-				<td id="bookId" name="id">{{book.id}}</td>
-				<td id="bookTitle" name="ti">{{book.title}}</td>
-				<td id="bookSeries" name="se">{{book.series}}</td>
-				<td id="bookAuthor" name="au">{{book.author}}</td>
-				<td id="bookIllustrator" name="il">{{book.illustrator}}</td>
-				<td id="bookGenre" name="ge">{{book.genre}}</td>
+				<td id="bookId-{{$index}}" name="bookId">{{book.id}}</td>
+				<td id="bookTitle-{{$index}}" name="bookTitle">{{book.title}}</td>
+				<td id="bookSeries-{{$index}}" name="bookSeries">{{book.series}}</td>
+				<td id="bookAuthor-{{$index}}" name="bookAuthor">{{book.author}}</td>
+				<td id="bookIllustrator-{{$index}}" name="bookIllustrator">{{book.illustrator}}</td>
+				<td id="bookGenre-{{$index}}" name="bookGenre">{{book.genre}}</td>
 				<td>
-					<button type="button" ng-click="ctrl.edit(book)" id="editBtn" name="editBtn" class="btn btn-success custom-width">Edit</button>
-                    <button type="button" ng-click="ctrl.remove(book)" id="deleteBtn" name="deleteBtn" class="btn btn-danger custom-width">Remove</button>
+					<button type="button" ng-click="ctrl.edit(book)" id="editBtn-{{$index}}" name="editBtn" class="btn btn-success custom-width">Edit</button>
+                    <button type="button" ng-click="ctrl.remove(book)" id="deleteBtn-{{$index}}" name="deleteBtn" class="btn btn-danger custom-width">Remove</button>
                 </td>
 			</tr>
 			</div>		
