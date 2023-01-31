@@ -10,14 +10,14 @@
 <body class="text-center">
 	<form action="login" method="POST">
 		<div align="center">
-			<h2>Book Archive</h2><br>
+			<h2 class="siteTitle">Book Archive</h2><br>
 			<div class="belch">
-			<p>User Name:</p>
-			<input type="text" name="username"><br>
-			<p>Password:</p>
-			<input type="password" name ="password"><br><br>
-			<input type="submit">
-			<p style="color: red">${error}</p>
+			<p class="userNameBanner">User Name:</p>
+			<input class="userNameInput" type="text" name="username"><br>
+			<p class="passwordBanner"> Password:</p>
+			<input class="passwordInput" type="password" name="password"><br><br>
+			<input type="submit" name="submitLogIn">
+			<p class="errorMessage" style="color: red">${error}</p>
 			</div>
 		</div>
 	</form>		

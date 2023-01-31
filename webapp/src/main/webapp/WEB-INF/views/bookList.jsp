@@ -13,16 +13,16 @@
 
 <div align="center" class="belch">
 	
-	<h2>List of Favorite Books</h2><BR>
+	<h2 class="bookListTitle">List of Favorite Books</h2><BR>
     <form align="center" name="bookForm" ng-model="bookForm">
-    <br><br><label>Title:  <input ng-model="title" type="text" name="title" required="required"/></label><br>
-    	<label>Series:  <input ng-model="series" type="text" name="series"/></label><br>
-        <label>Author:  <input ng-model="author" type="text" name="author" required="required"/></label><br>
-        <label>Illustrator:  <input ng-model="illustrator" type="text" name="illustrator" /></label><br>
-        <label>Genre:  <input ng-model="genre" type="text" name="genre" /></label><br>
+    <br><br><label name="titleLabel">Title:  <input ng-model="title" type="text" name="titleInput" required="required"/></label><br>
+    	<label name="seriesLabel">Series:  <input ng-model="series" type="text" name="seriesInput"/></label><br>
+        <label name="authorLabel">Author:  <input ng-model="author" type="text" name="authorInput" required="required"/></label><br>
+        <label name="illustratorLabel">Illustrator:  <input ng-model="illustrator" type="text" name="illustratorInput" /></label><br>
+        <label name="genreLabel">Genre:  <input ng-model="genre" type="text" name="genreInput" /></label><br>
         
-        <br><br><input ng-if="!ctrl.book.id" type="submit" ng-click="submit()" value="Submit new book" />
-		<input ng-if="ctrl.book.id" type="submit" ng-click="ctrl.update(book)" value="Update book" />
+        <br><br><input ng-if="!ctrl.book.id" name="submitBookBtn" type="submit" ng-click="submit()" value="Submit new book" />
+		<input ng-if="ctrl.book.id" name="updateBookBtn" type="submit" ng-click="ctrl.update(book)" value="Update book" />
 
         
         <p style="color: red">${error}</p>
@@ -33,26 +33,26 @@
 	<table border="1">
 	<thead>
 		<tr>
-			<th>Book Id</th>
-			<th>Title</th>
-			<th>Series</th>
-			<th>Author</th>
-			<th>Illustrator</th>
-			<th>Genre</th>
+			<th name="columnId">Book Id</th>
+			<th name="columnTitle">Title</th>
+			<th name="columnSeries">Series</th>
+			<th name="columnAuthor">Author</th>
+			<th name="columnIllustrator">Illustrator</th>
+			<th name="columnGenre">Genre</th>
 		</tr>
 		</thead>
 		<tbody>
 		<div>
-			<tr ng-repeat="book in books">
-				<td>{{book.id}}</td>
-				<td>{{book.title}}</td>
-				<td>{{book.series}}</td>
-				<td>{{book.author}}</td>
-				<td>{{book.illustrator}}</td>
-				<td>{{book.genre}}</td>
+			<tr id="bookList" name="bookList" ng-repeat="book in books">
+				<td id="bookId-{{$index}}" name="bookId">{{book.id}}</td>
+				<td id="bookTitle-{{$index}}" name="bookTitle">{{book.title}}</td>
+				<td id="bookSeries-{{$index}}" name="bookSeries">{{book.series}}</td>
+				<td id="bookAuthor-{{$index}}" name="bookAuthor">{{book.author}}</td>
+				<td id="bookIllustrator-{{$index}}" name="bookIllustrator">{{book.illustrator}}</td>
+				<td id="bookGenre-{{$index}}" name="bookGenre">{{book.genre}}</td>
 				<td>
-					<button type="button" ng-click="ctrl.edit(book)" class="btn btn-success custom-width">Edit</button>
-                    <button type="button" ng-click="ctrl.remove(book)" class="btn btn-danger custom-width">Remove</button>
+					<button type="button" ng-click="ctrl.edit(book)" id="editBtn-{{$index}}" name="editBtn" class="btn btn-success custom-width">Edit</button>
+                    <button type="button" ng-click="ctrl.remove(book)" id="deleteBtn-{{$index}}" name="deleteBtn" class="btn btn-danger custom-width">Remove</button>
                 </td>
 			</tr>
 			</div>		
