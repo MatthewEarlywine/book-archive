@@ -39,7 +39,7 @@ public class ListPageTests {
         }
 		catch (NumberFormatException e) {
 			System.out.println("Invalid String");
-		}
+		} 
 		return val;
 	}
 	

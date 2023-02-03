@@ -159,7 +159,7 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests{
 		System.out.println(service.doesIDExist(1L));
 		System.out.println(service.doesIDExist(6L));
 		
-	}
+	} 
 	
 	@Test
 	public void givenBookParameters_doesBookExist_returnBooleanValue() {
