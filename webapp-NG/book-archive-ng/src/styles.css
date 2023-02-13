@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+	background-image: url("../assets/wp6011714.webp");
+	background-color: pink;
+}
+
+h2{
+	color: rgb(202, 53, 199);
+}
+
+.belch {
+	background-color: orange;
+	margin-left: 500px;
+	margin-right: 500px;
+}
+
+table{
+	background-color: pink;
+}
+
+th {
+	padding: 20px;	
+}
+
+td {
+	padding: 20px;
+}
