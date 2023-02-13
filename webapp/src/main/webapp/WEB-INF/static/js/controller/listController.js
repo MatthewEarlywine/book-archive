@@ -53,18 +53,6 @@ angular.module('myApp').controller('listController', ['$scope', '$log' , 'ListSe
 		newBook.genre = $scope.genre;
 		postBook(newBook);
 	}
-
-/*	$scope.check = () => {
-		for(const book of $scope.books){
-			if(($scope.title == book.title) && ($scope.author == book.author)){
-				$log.log('This book is already recorded in the archive.');
-				System.out.println('This book is already recorded in the archive.')
-			} else {
-				$log.log('There is no record of this book in the archive.');
-				System.out.println('There is no record of this book in the archive.')
-			}
-		}
-	} */
 	
 	function check(book){
 		
