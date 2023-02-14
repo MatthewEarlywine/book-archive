@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent {
+export class BookListComponent implements onInit{
 
 }
