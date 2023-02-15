@@ -16,7 +16,6 @@ export class LogInComponent {
     this.loginForm = new FormGroup({
       username: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
-      confirmPassword: new FormControl(null)
     },
     {
       validators: matchpassword

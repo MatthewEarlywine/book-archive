@@ -6,6 +6,8 @@ import { BookListComponent } from './book-list/book-list.component';
 import { LogInComponent } from './home/log-in.component';
 import { LandingComponent } from './home/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: 'home', component: LandingComponent},
+      { path: '', redirectTo: 'home', pathMatch: 'full'},
+      { path: '**', redirectTo: 'home', pathMatch: 'full'}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

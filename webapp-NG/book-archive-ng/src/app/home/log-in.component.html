@@ -5,6 +5,6 @@
     <p>Confirm Password: <input type='text' formControlName='confirmPassword' /></p>
     <span *ngIf="loginForm.errors?.['passwordMatchError']" style="color:red">
         Both Username and Password must each be at least eight (8) characters long</span>
-    <button [disabled]="loginForm.invalid">login</button>
+    <button [disabled]="loginForm.invalid" routerLink="/home">login</button>
   </form>
 </div>
