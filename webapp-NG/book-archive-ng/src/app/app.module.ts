@@ -3,20 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BookListComponent } from './book-list/book-list.component';
-import { HomepageComponent } from './home/homepage.component';
-import { LandingComponent } from './home/landing.component';
 import { LogInComponent } from './home/log-in.component';
+import { LandingComponent } from './home/landing.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    HomepageComponent,
-    LandingComponent,
-    LogInComponent
+    LogInComponent,
+    LandingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
