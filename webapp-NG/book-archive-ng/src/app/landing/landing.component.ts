@@ -6,7 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   template:`
             <div class="belch"><br><br><h1>Welcome to the {{pageTitle}}!</h1><br>
             
-            <br></div>
+            <br><br>
+            <div><button (click)='onClick()'>To the List!</button><br><br></div></div>
   `,
   styleUrls: ['./landing.component.css']
 })

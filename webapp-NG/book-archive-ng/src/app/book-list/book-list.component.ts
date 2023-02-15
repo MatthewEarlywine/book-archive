@@ -7,6 +7,6 @@ import { Book } from './book';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent{
-  error: string = "The Username and/or Password is faulty. Please try again.";
+  bookError: string = "The Title and/or Author field is faulty. Please try again.";
   books: Book[] = [];
 }
