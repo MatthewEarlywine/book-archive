@@ -4,10 +4,4 @@
 
 <hr/>
 
-<div class="belch">
-  <form (ngSubmit)="login()" [formGroup]='loginForm' novalidate>
-    <p>Username: <input type='text' formControlName='username' /></p>
-    <p>Password: <input type='text' formControlName='password' /></p>
-    <button [disabled]="loginForm.invalid">login</button>
-  </form>
-</div>
+<ba-log-in></ba-log-in>
