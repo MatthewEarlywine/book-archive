@@ -9,7 +9,7 @@ export const matchpassword: ValidatorFn = (control: AbstractControl): Validation
 
     let password = control.get('password');
     let username = control.get('username');
-    if ((password?.value.length() || username?.value.length()) < 8){
+    if ((password?.value || username?.value) < 8){
         return{
             passwordMatchError: true
         }

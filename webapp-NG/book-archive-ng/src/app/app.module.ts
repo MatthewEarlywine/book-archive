@@ -22,8 +22,10 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      { path: 'login', component: LogInComponent},
       { path: 'home', component: LandingComponent},
-      { path: '', redirectTo: 'home', pathMatch: 'full'},
+      { path: 'list', component: BookListComponent},
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
       { path: '**', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
