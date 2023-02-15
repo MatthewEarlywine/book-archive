@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
 html, body {
-	background-image: url("../assets/wp6011714.webp");
+	background-image: url("./assets/wp6011714.webp");
 	background-color: pink;
 }
 
@@ -14,6 +14,7 @@ h2{
 	background-color: orange;
 	margin-left: 500px;
 	margin-right: 500px;
+	text-align: center;
 }
 
 table{

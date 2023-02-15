@@ -3,9 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ba-root',
-  template:`
-  <div><h1>{{pageTitle}}</h1></div>
-  `,
+  templateUrl:'./app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{

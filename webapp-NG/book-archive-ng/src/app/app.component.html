@@ -1,12 +1,13 @@
-<div>
+<div style="" style="text-align:center ; color:orange" >
   <h1>{{pageTitle}}</h1>
 </div>
 
 <hr/>
 
-<form (ngSubmit)="login()" [formGroup]='loginForm' novalidate>
-  <p>Username: <input type='text' formControlName='username' /></p>
-  <p>Password: <input type='text' formControlName='password' /></p>
-  <button [disabled]="loginForm.invalid">login</button>
-</form>
-
+<div class="belch">
+  <form (ngSubmit)="login()" [formGroup]='loginForm' novalidate>
+    <p>Username: <input type='text' formControlName='username' /></p>
+    <p>Password: <input type='text' formControlName='password' /></p>
+    <button [disabled]="loginForm.invalid">login</button>
+  </form>
+</div>
