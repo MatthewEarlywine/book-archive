@@ -1,7 +1,5 @@
 package org.bookarchive.webapp.manager;
 
-import java.util.List;
-
 import org.bookarchive.webapp.model.BookView;
 import org.springframework.http.ResponseEntity;
 
@@ -19,6 +17,6 @@ public interface ListManager {
 
 	ResponseEntity<BookView> findByTitle(String title);
 
-//	boolean doesBookExist(BookView book);
-	
+	// boolean doesBookExist(BookView book);
+
 }
