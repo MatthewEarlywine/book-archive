@@ -14,8 +14,8 @@
         <label>Illustrator:  <input ng-model="illustrator" type="text" name="illustrator" /></label><br>
         <label>Genre:  <input ng-model="genre" type="text" name="genre" /></label><br>
         
-        <br><br><input *ngIf="!book.id" type="submit" (click)="onSubmit()" value="Submit new book" />
-		<input *ngIf="book.id" type="submit" ng-click="ctrl.update(book)" value="Update book" />
+        <br><br><input *ngIf="book?.id === null" type="submit" (click)="onSubmit()" value="Submit new book" />
+		<input *ngIf="book?.id" type="submit" ng-click="ctrl.update(book)" value="Update book" />
 
         
         <p *ngIf="isError" style="color: red">{{bookError}}</p>
@@ -37,12 +37,12 @@
                 <tbody>
                     <div>
                         <tr *ngFor="let book of books">
-                            <td>{{book.id}}</td>
-                            <td>{{book.title}}</td>
-                            <td>{{book.series}}</td>
-                            <td>{{book.author}}</td>
-                            <td>{{book.illustrator}}</td>
-                            <td>{{book.genre}}</td>
+                            <td>{{book?.id}}</td>
+                            <td>{{book?.title}}</td>
+                            <td>{{book?.series}}</td>
+                            <td>{{book?.author}}</td>
+                            <td>{{book?.illustrator}}</td>
+                            <td>{{book?.genre}}</td>
                             <td>
                                 <button type="button" ng-click="ctrl.edit(book)" class="btn btn-success custom-width">Edit</button>
                                 <button type="button" ng-click="ctrl.remove(book)" class="btn btn-danger custom-width">Remove</button>

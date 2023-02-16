@@ -7,7 +7,7 @@ import { catchError, Observable, pipe, tap, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class BookListService {
-  private bookListUrl = 'http://localhost:8081/api/favoritebooks/';
+  private bookListUrl = 'http://localhost:8080/api/favoritebooks/';
 
   constructor(private http: HttpClient) { }
 
