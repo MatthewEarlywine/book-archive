@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PostLoad;
 
+import org.springframework.util.MultiValueMap;
 import org.archive.provider.entity.Book;
 import org.archive.provider.service.ListService;
 import org.slf4j.Logger;

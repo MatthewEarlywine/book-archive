@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, pipe, tap, throwError } from 'rxjs';
 
 @Injectable({
@@ -12,11 +12,20 @@ export class BookListService {
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<Book[]>{
-       return this.http.get<Book[]>(this.bookListUrl).pipe(
+      return this.http.get<Book[]>(this.bookListUrl).pipe(
         tap(data => console.log('All', JSON.stringify(data))),
         catchError(this.handleError)
-       );
-    }
+      );
+  }
+  
+  addBook(book: Book): Observable<Book>{
+      const headers = new HttpHeaders({'Content-Type': 'application/json'});
+      return this.http.post<Book>(this.bookListUrl + 'saveBook', book, {headers})
+      .pipe(
+          tap(data => console.log('added book: ' + JSON.stringify(data))),
+          catchError(this.handleError)
+      );
+  }
 
   private handleError(err: HttpErrorResponse){
         let errorMessage = ' ';
