@@ -7,12 +7,9 @@
         <methods>
           <include name="cleanse"/>
           <include name="editBook_withGoodData"/>
-          <include name="addBook_withBadAuthorData"/>
           <include name="editBook_withBadAuthorData"/>
-          <include name="goFromLandingPage_toBookListPage"/>
           <include name="editBook_withBadTitleData"/>
           <include name="deleteBook"/>
-          <include name="addBook_withBadTitleData"/>
           <include name="setup"/>
           <include name="addBook_withGoodData"/>
         </methods>

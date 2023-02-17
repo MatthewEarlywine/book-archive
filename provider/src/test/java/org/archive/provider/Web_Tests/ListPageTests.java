@@ -255,7 +255,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		
@@ -308,7 +308,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		
@@ -361,7 +361,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		
@@ -449,7 +449,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		
@@ -515,7 +515,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		
@@ -581,7 +581,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		
@@ -649,7 +649,7 @@ public class ListPageTests {
 		
 		submit.click();
 		
-		WebElement listButton = driver.findElement(By.className("BookListButton"));
+		WebElement listButton = driver.findElement(By.name("BookListButton"));
 		
 		listButton.click();
 		

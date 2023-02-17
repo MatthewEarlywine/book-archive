@@ -38,16 +38,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                        <tr *ngFor="let book of books" id="bookList">
-                            <td id="bookID-{{index}}">{{book.id}}</td>
-                            <td id="bookTitle-{{index}}">{{book.title}}</td>
-                            <td id="bookSeries-{{index}}">{{book.series}}</td>
-                            <td id="bookAuthor-{{index}}">{{book.author}}</td>
-                            <td id="bookIllustrator-{{index}}">{{book.illustrator}}</td>
-                            <td id="bookGenre-{{index}}">{{book.genre}}</td>
+                        <tr *ngFor="let book of books; index as i" id="bookList">
+                            <td name="bookId" id="bookId-{{i}}">{{book.id}}</td>
+                            <td name="bookTitle" id="bookTitle-{{i}}">{{book.title}}</td>
+                            <td name="bookSeries" id="bookSeries-{{i}}">{{book.series}}</td>
+                            <td name="bookAuthor" id="bookAuthor-{{i}}">{{book.author}}</td>
+                            <td name="bookIllustrator" id="bookIllustrator-{{i}}">{{book.illustrator}}</td>
+                            <td name="bookGenre" id="bookGenre-{{i}}">{{book.genre}}</td>
                             <td>
-                                <button type="button"  id="editBtn-{{index}}" (click)='editBook(book)' class="btn btn-success custom-width">Edit</button>
-                                <button type="button"  id="deleteBtn-{{index}}" (click)="deleteBook(book.id)" class="btn btn-danger custom-width">Remove</button>
+                                <button type="button" name="editBtn" id="editBtn-{{i}}" (click)='editBook(book)' class="btn btn-success custom-width">Edit</button>
+                                <button type="button" name="deleteBtn" id="deleteBtn-{{i}}" (click)="deleteBook(book.id)" class="btn btn-danger custom-width">Remove</button>
                             </td>
                         </tr>
                     		
