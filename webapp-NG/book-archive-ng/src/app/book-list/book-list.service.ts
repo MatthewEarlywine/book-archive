@@ -27,6 +27,18 @@ export class BookListService {
       );
   }
 
+  
+
+  deleteBook(id: number): Observable<{}>{
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        const url = `${this.bookListUrl}delete/${id}`;
+        return this.http.delete<Book>(url, {headers})
+        .pipe(
+            tap(data => console.log('deleted book: ' + id)),
+            catchError(this.handleError)
+        );
+    }
+
   private handleError(err: HttpErrorResponse){
         let errorMessage = ' ';
         if(err.error instanceof ErrorEvent){

@@ -15,8 +15,8 @@
         <label>Illustrator:  <input  type="text" name="illustrator" formControlName="illustrator" /></label><br>
         <label>Genre:  <input  type="text" name="genre" formControlName="genre" /></label><br>
         
-        <br><br><input *ngIf="bookForm.get('id')?.value === null" type="submit" (click)='addBook()' value="Submit new book" />
-		<input *ngIf="bookForm.get('id')?.value"  type="submit" ng-click="ctrl.update(book)" value="Update book" />
+        <br><br><input *ngIf="bookForm.get('id')?.value === null" [disabled]="bookForm.invalid" type="submit" (click)='addBook()' value="Submit new book" />
+		<input *ngIf="bookForm.get('id')?.value"  type="submit" [disabled]="bookForm.invalid"  (click)='updateBook()' value="Update book" />
 
         
         <p *ngIf="isError" style="color: red">{{bookError}}</p>
@@ -38,15 +38,15 @@
                 <tbody>
                     
                         <tr *ngFor="let book of books">
-                            <td>{{book?.id}}</td>
-                            <td>{{book?.title}}</td>
-                            <td>{{book?.series}}</td>
-                            <td>{{book?.author}}</td>
-                            <td>{{book?.illustrator}}</td>
-                            <td>{{book?.genre}}</td>
+                            <td>{{book.id}}</td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.series}}</td>
+                            <td>{{book.author}}</td>
+                            <td>{{book.illustrator}}</td>
+                            <td>{{book.genre}}</td>
                             <td>
-                                <button type="button" ng-click="ctrl.edit(book)" class="btn btn-success custom-width">Edit</button>
-                                <button type="button" ng-click="ctrl.remove(book)" class="btn btn-danger custom-width">Remove</button>
+                                <button type="button" (click)='editBook(book)' class="btn btn-success custom-width">Edit</button>
+                                <button type="button" (click)="deleteBook(book.id)" class="btn btn-danger custom-width">Remove</button>
                             </td>
                         </tr>
                     		

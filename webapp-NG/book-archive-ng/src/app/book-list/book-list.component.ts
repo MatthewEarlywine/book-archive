@@ -20,7 +20,7 @@ export class BookListComponent implements OnInit{
   errorMessage: string = "";
   sub: Subscription = new Subscription;
   books: Book[] = [];
-  
+
   isError: boolean = false;
 
   ngOnInit(): void {
@@ -47,10 +47,39 @@ export class BookListComponent implements OnInit{
     this.bookListService.addBook(this.bookForm.value).subscribe({
       next: () => this.reloadPage(),
       error: err => this.errorMessage = err
+    });
+    this.reset();
+  }
+
+  editBook(book: Book): void{
+    this.bookForm.setValue({
+      id: book.id, 
+      title: book.title, 
+      series: book.series, 
+      author: book.author, 
+      illustrator: book.illustrator, 
+      genre: book.genre}) 
+  }
+
+  updateBook(): void{
+        console.log(this.bookForm.value);
+    this.bookListService.addBook(this.bookForm.value).subscribe({
+      next: () => this.reloadPage(),
+      error: err => this.errorMessage = err
 
     });
+  }
+
+  deleteBook(id: number): void {
+    if(confirm('Are you sure you want to delete?')){
+      this.bookListService.deleteBook(id).subscribe({
+        next: () => this.reloadPage(),
+        error: err => this.errorMessage = err
+      });
+    }
 
   }
+
   reloadPage() {
     window.location.reload();
  }
