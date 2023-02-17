@@ -1,15 +1,18 @@
 package org.archive.provider.controller;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PostLoad;
 
-import org.springframework.util.MultiValueMap;
 import org.archive.provider.entity.Book;
 import org.archive.provider.service.ListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -44,10 +47,10 @@ public class RestListController {
 	// }
 
 	@GetMapping
-	public ResponseEntity<List<Book>> getAllBooks() {
+	public ResponseEntity<List<Book>> getAllBooks(){
 		List<Book> bookList = bookService.findAllBooks();
 
-		if (!(bookList != null)) {
+		if(!(bookList != null)) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Book>>(bookList, HttpStatus.OK);
@@ -62,8 +65,9 @@ public class RestListController {
 	// return new ResponseEntity<Boolean>(answer, HttpStatus.OK);
 	// }
 
+	
 	@GetMapping(value = "test")
-	public ResponseEntity<String> testMethod() {
+	public ResponseEntity<String> testMethod(){
 		return new ResponseEntity<String>("test", HttpStatus.OK);
 	}
 
@@ -75,10 +79,10 @@ public class RestListController {
 			Book book = bookService.findById(id);
 			return new ResponseEntity<>(book, HttpStatus.OK);
 		}
-
+		
 		return new ResponseEntity<String>("No book with ID: " + id + " was found", HttpStatus.CONFLICT);
 	}
-
+	
 	@PostLoad
 	public void postLoad(Book book) {
 		try {
@@ -91,25 +95,21 @@ public class RestListController {
 	}
 
 	@GetMapping(value = "title/{title}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBookByTitle(@PathVariable("title") String title) {
+	public ResponseEntity<?> getBookByTitle(@PathVariable("title") String title){
 		Book book = bookService.findByTitle(title);
-		if (book == null) {
-			return new ResponseEntity<String>("No book titled " + title + " was found.", HttpStatus.CONFLICT);
-		}
+        if (book == null) {
+            return new ResponseEntity<String>("No book titled " + title + " was found.", HttpStatus.CONFLICT);
+        }
 		return new ResponseEntity<>(book, HttpStatus.OK);
 	}
-
+	
 	@PostMapping(value = "saveBook")
-	public ResponseEntity<?> saveBook(@RequestBody Book book) {
-		if (bookService.doesBookExist(book)) {
-			logger.debug(
-					"A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed");
-			System.out.println(
-					"A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed");
-			return new ResponseEntity<String>(
-					"A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed",
-					HttpStatus.CONFLICT);
-		}
+	public ResponseEntity<?> saveBook(@RequestBody Book book){
+        if (bookService.doesBookExist(book)) {
+            logger.debug("A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed");
+            System.out.println("A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed");
+            return new ResponseEntity<String>("A book with title " + book.getTitle() + " authored by " + book.getAuthor() + " is already listed",HttpStatus.CONFLICT);
+        }
 		bookService.saveBook(book);
 		return new ResponseEntity<>(book, HttpStatus.OK);
 	}
@@ -133,7 +133,7 @@ public class RestListController {
 		// }
 
 		bookService.deleteBookById(id);
-
+		
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 

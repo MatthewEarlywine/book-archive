@@ -14,6 +14,7 @@ export class BookListComponent implements OnInit{
   bookError: string = "The Title and/or Author field is faulty. Please try again.";
 
   bookForm!: FormGroup;
+  index: any;
 
   constructor(private formBuilder: FormBuilder, private bookListService: BookListService) {}
 

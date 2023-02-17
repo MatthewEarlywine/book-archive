@@ -75,6 +75,7 @@ public class ListManagerImpl implements ListManager {
 		restTemplate.delete(requestUri + "{id}", Long.toString(id));
 	}
 
+<<<<<<< HEAD
 	// public boolean doesBookExist(BookView book) {
 	// System.out.println(book.getTitle());
 	// Query query = sessionFactory.openSession().createQuery("FROM Book b WHERE
@@ -92,4 +93,7 @@ public class ListManagerImpl implements ListManager {
 	//
 	// }
 
+=======
+	
+>>>>>>> refs/remotes/origin/dev4
 }

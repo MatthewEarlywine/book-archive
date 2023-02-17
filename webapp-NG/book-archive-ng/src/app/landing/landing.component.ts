@@ -3,21 +3,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ba-landing',
-  template:`
-            <div class="belch"><br><br><h1>Welcome to the {{pageTitle}}!</h1><br>
-            
-            <br><br>
-            <div><button (click)='onClick()'>To the List!</button><br><br></div></div>
-  `,
+  templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit{
-  pageTitle: string = 'Favorite Book Listing';
+  pageTitle: string = 'Archive';
 
   constructor(private route: ActivatedRoute,
               private router: Router){ }
   ngOnInit(): void {
-    this.pageTitle = 'List';
+    this.pageTitle = 'Archive';
   }
 
   onClick(): void {

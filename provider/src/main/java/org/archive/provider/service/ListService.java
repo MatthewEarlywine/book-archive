@@ -12,7 +12,7 @@ public interface ListService {
 
 	public Book updateBook(Book book);
 
-	public void deleteBookById(Long id);
+	public Boolean deleteBookById(Long id);
 
 	public List<Book> findAllBooks();
 

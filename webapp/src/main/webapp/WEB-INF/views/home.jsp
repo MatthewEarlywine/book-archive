@@ -11,9 +11,9 @@
 <body>
 
 <div align="center">
-	<h2>Welcome to the Archive</h2><BR>
+	<h2 class="landingPageTitle">Welcome to the Archive</h2><BR>
 	
-	<a href="/api/favoritebooks/">
+	<a href="/api/favoritebooks/" class="BookListButton">
 	<button>See our list of books</button>
 	</a><br><br>
 	

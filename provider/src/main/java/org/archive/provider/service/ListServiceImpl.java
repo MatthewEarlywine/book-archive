@@ -20,7 +20,6 @@ public class ListServiceImpl implements ListService {
 	public SessionFactory sessionFactory;
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public List<Book> findAllBooks() {
 		// Session s = sessionFactory.getCurrentSession();
 		// CriteriaBuilder cb = s.getCriteriaBuilder();
@@ -32,9 +31,9 @@ public class ListServiceImpl implements ListService {
 		return bookRepo.findAll();
 	}
 
-	@SuppressWarnings("deprecation")
+	@Override
 	public Book findById(Long id) {
-		return bookRepo.getById(id);
+		return bookRepo.getReferenceById(id);
 	}
 
 	@Override
@@ -52,12 +51,16 @@ public class ListServiceImpl implements ListService {
 		return bookRepo.save(book);
 	}
 
-	public void deleteBookById(Long id) {
+	public Boolean deleteBookById(Long id) {
 		bookRepo.deleteById(id);
+		return true;
 	}
 
 	@Override
 	public boolean doesBookExist(Book book) {
+		book.getTitle();
+		book.getAuthor();
+		book.getIllustrator();
 
 		Query query = sessionFactory.openSession().createQuery(
 				"FROM Book b WHERE b.title = :title and b.author = :author and b.illustrator = :illustrator");
@@ -67,13 +70,13 @@ public class ListServiceImpl implements ListService {
 
 		List<?> pList = query.getResultList();
 
-		if (!pList.isEmpty()) {
+		if ((!pList.isEmpty()) && (bookRepo.findByTitleAndAuthorAndIllustrator(book.getTitle(), book.getAuthor(), book.getIllustrator()) != null)) {
 			return true;
-		}
+		}	
 		return false;
 	}
 
-	@Override
+	@Override // what if search for id of record that doesn't exist?
 	public boolean doesIDExist(Long id) {
 		List<Book> list = bookRepo.findAll();
 		for (Book b : list) {

@@ -1,13 +1,12 @@
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\service\ListService.java
+C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\service\package-info.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\controller\RestListController.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\repository\package-info.java
+C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\api\package-info.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\model\package-info.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\ArchiveApplication.java
-C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\entity\package-info.java
-C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\service\package-info.java
-C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\api\package-info.java
-C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\model\BookView.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\repository\BookDao.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\controller\package-info.java
+C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\entity\package-info.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\service\ListServiceImpl.java
 C:\Users\matthew.earlywine\git\book-archive\provider\src\main\java\org\archive\provider\entity\Book.java

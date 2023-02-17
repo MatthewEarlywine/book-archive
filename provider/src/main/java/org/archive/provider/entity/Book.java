@@ -36,21 +36,11 @@ public class Book {
 	@Column(name = "GENRE")
 	private String genre;
 
-	Book() {}
+	public Book() {}
 	
 	Book(Book book){
 		BeanUtils.copyProperties(book, this, Book.class);
 	}
-	
-//	public static Book convert(Book book) {
-//		if (book == null) { 
-//			return null;
-//		}
-//		if (book instanceof Book) {
-//			return (Book) book;
-//		}
-//		return new Book(book);
-//	}
 	
 	public Long getId() {
 		return id;
