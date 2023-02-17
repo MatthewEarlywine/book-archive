@@ -15,7 +15,9 @@
         <label>Illustrator:  <input  type="text" name="illustrator" formControlName="illustrator" /></label><br>
         <label>Genre:  <input  type="text" name="genre" formControlName="genre" /></label><br>
         
-        <br><br><input *ngIf="bookForm.get('id')?.value === null" [disabled]="bookForm.invalid" type="submit" (click)='addBook()' value="Submit new book" />
+        <br>
+        <button (click)="reset()">Clear</button><br>
+        <br><input *ngIf="bookForm.get('id')?.value === null" [disabled]="bookForm.invalid" type="submit" (click)='addBook()' value="Submit new book" />
 		<input *ngIf="bookForm.get('id')?.value"  type="submit" [disabled]="bookForm.invalid"  (click)='updateBook()' value="Update book" />
 
         
