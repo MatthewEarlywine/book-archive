@@ -18,7 +18,7 @@
         <br>
         <button (click)="reset()">Clear</button><br>
         <br><input *ngIf="bookForm.get('id')?.value === null" name="submitBookBtn" [disabled]="bookForm.invalid" type="submit" (click)='addBook()' value="Submit new book" />
-		<input *ngIf="bookForm.get('id')?.value"  type="submit" [disabled]="bookForm.invalid"  (click)='updateBook()' value="Update book" />
+		<input *ngIf="bookForm.get('id')?.value"  type="submit" name="updateBookBtn" [disabled]="bookForm.invalid"  (click)='updateBook()' value="Update book" />
 
         
         <p *ngIf="isError" style="color: red">{{bookError}}</p>

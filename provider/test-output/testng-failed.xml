@@ -6,10 +6,6 @@
       <class name="org.archive.provider.Web_Tests.ListPageTests">
         <methods>
           <include name="cleanse"/>
-          <include name="editBook_withGoodData"/>
-          <include name="editBook_withBadAuthorData"/>
-          <include name="editBook_withBadTitleData"/>
-          <include name="deleteBook"/>
           <include name="setup"/>
           <include name="addBook_withGoodData"/>
         </methods>
