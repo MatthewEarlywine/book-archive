@@ -387,53 +387,56 @@ public class ListPageTests {
 		bookList = driver.findElements(By.id("bookList"));
 		ArrayList<WebElement> bookField = new ArrayList<>();
 		
-		int index = 0;
-		for(index=0; index <= bookList.size(); index++) {
+	
 
-			if(index == 0) {
-				WebElement bookId = driver.findElement(By.id("bookId-0"));
-				WebElement bookTitle = driver.findElement(By.id("bookTitle-0"));
+			
+				WebElement bookId1 = driver.findElement(By.id("bookId-0"));
+				WebElement bookTitle1 = driver.findElement(By.id("bookTitle-0"));
 				
-				System.out.println(bookTitle.getText());
-				System.out.println(bookId.getText());
-			}
-			if(index == 1) {
-				WebElement bookId = driver.findElement(By.id("bookId-1"));
-				WebElement bookTitle = driver.findElement(By.id("bookTitle-1"));
+				System.out.println(bookTitle1.getText());
+				System.out.println(bookId1.getText());
+				System.out.println("This is the thing!");
+		
+		
+				WebElement bookId2 = driver.findElement(By.id("bookId-1"));
+				WebElement bookTitle2 = driver.findElement(By.id("bookTitle-1"));
 				
-				System.out.println(bookTitle.getText());
-				System.out.println(bookId.getText());
-			}
-			if(index == 2) {
-				WebElement bookId = driver.findElement(By.id("bookId-2"));
-				WebElement bookTitle = driver.findElement(By.id("bookTitle-2"));
+				System.out.println(bookTitle2.getText());
+				System.out.println(bookId2.getText());
+				System.out.println("This is the 2nd thing!");
+		
+		
+				WebElement bookId3 = driver.findElement(By.id("bookId-2"));
+				WebElement bookTitle3 = driver.findElement(By.id("bookTitle-2"));
 				
-				System.out.println(bookTitle.getText());
-				System.out.println(bookId.getText());
-			}
-			if(index == 3) {
-				WebElement bookId = driver.findElement(By.id("bookId-3"));
-				WebElement bookTitle = driver.findElement(By.id("bookTitle-3"));
-				WebElement bookSeries = driver.findElement(By.id("bookSeries-3"));
-				WebElement bookAuthor = driver.findElement(By.id("bookAuthor-3"));
-				WebElement bookIllustrator = driver.findElement(By.id("bookIllustrator-3"));
-				WebElement bookGenre = driver.findElement(By.id("bookGenre-3"));
+				System.out.println(bookTitle3.getText());
+				System.out.println(bookId3.getText());
+				System.out.println("This is the 3rd thing!");
+		
+			
+				WebElement bookId4 = driver.findElement(By.id("bookId-3"));
+				WebElement bookTitle4 = driver.findElement(By.id("bookTitle-3"));
+				WebElement bookSeries4 = driver.findElement(By.id("bookSeries-3"));
+				WebElement bookAuthor4 = driver.findElement(By.id("bookAuthor-3"));
+				WebElement bookIllustrator4 = driver.findElement(By.id("bookIllustrator-3"));
+				WebElement bookGenre4 = driver.findElement(By.id("bookGenre-3"));
 				
 				
-				System.out.println(bookTitle.getText());
-				System.out.println(bookId.getText());
+				System.out.println(bookTitle4.getText());
+				System.out.println(bookId4.getText());
+				System.out.println("This is the new thing!");
 				
-				if(bookTitle.getText().equals("Dracula")) {
-					assertEquals(index, 3);
-					assertEquals(bookId.getText(), "4");
-					assertEquals(bookSeries.getText(), "Horror Classics");
-					assertEquals(bookAuthor.getText(), "Bram Stoker");
-					assertEquals(bookIllustrator.getText(), "House of Carfax");
-					assertEquals(bookGenre.getText(), "Horror");
+				if(bookTitle4.getText().equals("Dracula")) {
+					assertEquals(bookList.size(), 3);
+					assertEquals(bookId4.getText(), "4");
+					assertEquals(bookSeries4.getText(), "Horror Classics");
+					assertEquals(bookAuthor4.getText(), "Bram Stoker");
+					assertEquals(bookIllustrator4.getText(), "House of Carfax");
+					assertEquals(bookGenre4.getText(), "Horror");
 				}
-			}
+		
 					
-		}
+	
 	}
 	
 	@Test(priority=5)
@@ -659,6 +662,7 @@ public class ListPageTests {
 		System.out.println(size1);
 		WebElement deleteBtn = driver.findElement(By.id("deleteBtn-2"));
 		deleteBtn.click();
+		driver.switchTo().alert().accept();
 		bookList = driver.findElements(By.id("bookList"));
 		
 		new WebDriverWait(driver, Duration.ofSeconds(1)).until(ExpectedConditions.numberOfElementsToBeLessThan(By.id("bookList"), 4));
