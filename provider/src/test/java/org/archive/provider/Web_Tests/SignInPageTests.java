@@ -21,15 +21,15 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SignInPageTests {
-	
-	@FindBy(id="username")
+
+	@FindBy(id = "username")
 	private WebElement username;
-	
-	@FindBy(id="password")
+
+	@FindBy(id = "password")
 	private WebElement password;
-	
+
 	public static WebDriver driver = null;
-	
+
 	@SuppressWarnings("deprecation")
 	@BeforeTest
 	public void setup() {
@@ -44,161 +44,164 @@ public class SignInPageTests {
 	public void cleanse() {
 		driver.close();
 	}
-	
-	@Test
+
+	@Test(priority=1)
 	public void loadLogInPage() {
-		driver.get("http://localhost:8081/");
-		WebElement result1 = driver.findElement(By.className("siteTitle"));
+		driver.get("http://localhost:4200/");
+		WebElement result1 = driver.findElement(By.name("siteTitle"));
 		String expected1 = "Book Archive";
 		assertEquals(result1.getText(), expected1);
-		
-		WebElement result2 = driver.findElement(By.className("userNameBanner"));
+
+		WebElement result2 = driver.findElement(By.name("userNameBanner"));
 		String expected2 = "User Name:";
 		assertEquals(result2.getText(), expected2);
-		
-		WebElement result3 = driver.findElement(By.className("userNameInput"));
+
+		WebElement result3 = driver.findElement(By.name("username"));
 		assertTrue(result3.isDisplayed());
-		
-		WebElement result4 = driver.findElement(By.className("passwordBanner"));
+
+		WebElement result4 = driver.findElement(By.name("passwordBanner"));
 		String expected4 = "Password:";
 		assertEquals(result4.getText(), expected4);
-		
-		WebElement result5 = driver.findElement(By.className("passwordInput"));
-		assertTrue(result5.isDisplayed());	
+
+		WebElement result5 = driver.findElement(By.name("password"));
+		assertTrue(result5.isDisplayed());
 	}
-	
-	@Test
+
+	@Test(priority=2)
 	public void signIn_badUserName1() {
-		driver.get("http://localhost:8081/");
-		
+		driver.get("http://localhost:4200/");
+
 		WebElement username = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		WebElement submit = driver.findElement(By.name("submitLogIn"));
-		
+
 		username.sendKeys("user"); // user name must be eight characters long, no spaces
 		password.sendKeys("aaaaaaaa");
-		
+
 		submit.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.urlToBe("http://localhost:8081/login"));
-		
+
+		new WebDriverWait(driver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+
 		String currentUrl = driver.getCurrentUrl();
-		
-		assertEquals(currentUrl, "http://localhost:8081/login");
-		
-		WebElement result1 = driver.findElement(By.className("siteTitle"));
+
+		assertEquals(currentUrl, "http://localhost:4200/login");
+
+		WebElement result1 = driver.findElement(By.name("siteTitle"));
 		String expected1 = "Book Archive";
 		assertEquals(result1.getText(), expected1);
-		
-		WebElement errorMessage = driver.findElement(By.className("errorMessage"));
-		assertTrue(errorMessage.isDisplayed());	
+
+		WebElement errorMessage = driver.findElement(By.name("errorMessage"));
+		assertTrue(errorMessage.isDisplayed());
 	}
-	
-	@Test
+
+	@Test(priority=3)
 	public void signIn_badUserName2() {
-		driver.get("http://localhost:8081/");
-		
+		driver.get("http://localhost:4200/");
+
 		WebElement username = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		WebElement submit = driver.findElement(By.name("submitLogIn"));
-		
+
 		username.sendKeys("super duper"); // user name must be eight characters long, no spaces
 		password.sendKeys("aaaaaaaa");
-		
+
 		submit.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.urlToBe("http://localhost:8081/login"));
-		
+
+		new WebDriverWait(driver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+
 		String currentUrl = driver.getCurrentUrl();
-		
-		assertEquals(currentUrl, "http://localhost:8081/login");
-		
-		WebElement result1 = driver.findElement(By.className("siteTitle"));
+
+		assertEquals(currentUrl, "http://localhost:4200/login");
+
+		WebElement result1 = driver.findElement(By.name("siteTitle"));
 		String expected1 = "Book Archive";
 		assertEquals(result1.getText(), expected1);
-		
-		WebElement errorMessage = driver.findElement(By.className("errorMessage"));
-		assertTrue(errorMessage.isDisplayed());	
+
+		WebElement errorMessage = driver.findElement(By.name("errorMessage"));
+		assertTrue(errorMessage.isDisplayed());
 	}
-	
-	@Test
+
+	@Test(priority=4)
 	public void signIn_badPassword1() {
-		driver.get("http://localhost:8081/");
-		
+		driver.get("http://localhost:4200/");
+
 		WebElement username = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		WebElement submit = driver.findElement(By.name("submitLogIn"));
-		
+
 		username.sendKeys("superduper");
 		password.sendKeys("ggggggg"); // password must be eight characters long, no spaces
-		
+
 		submit.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.urlToBe("http://localhost:8081/login"));
-		
+
+		new WebDriverWait(driver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+
 		String currentUrl = driver.getCurrentUrl();
-		
-		assertEquals(currentUrl, "http://localhost:8081/login");
-		
-		WebElement result1 = driver.findElement(By.className("siteTitle"));
+
+		assertEquals(currentUrl, "http://localhost:4200/login");
+
+		WebElement result1 = driver.findElement(By.name("siteTitle"));
 		String expected1 = "Book Archive";
 		assertEquals(result1.getText(), expected1);
-		
-		WebElement errorMessage = driver.findElement(By.className("errorMessage"));
-		assertTrue(errorMessage.isDisplayed());		
+
+		WebElement errorMessage = driver.findElement(By.name("errorMessage"));
+		assertTrue(errorMessage.isDisplayed());
 	}
-	
-	@Test
+
+	@Test(priority=5)
 	public void signIn_badPassword2() {
-		driver.get("http://localhost:8081/");
-		
+		driver.get("http://localhost:4200/");
+
 		WebElement username = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		WebElement submit = driver.findElement(By.name("submitLogIn"));
-		
+
 		username.sendKeys("superduper");
 		password.sendKeys("ggg gggg"); // password must be eight characters long, no spaces
-		
+
 		submit.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.urlToBe("http://localhost:8081/login"));
-		
+
+		new WebDriverWait(driver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+
 		String currentUrl = driver.getCurrentUrl();
-		
-		assertEquals(currentUrl, "http://localhost:8081/login");
-		
-		WebElement result1 = driver.findElement(By.className("siteTitle"));
+
+		assertEquals(currentUrl, "http://localhost:4200/login");
+
+		WebElement result1 = driver.findElement(By.name("siteTitle"));
 		String expected1 = "Book Archive";
 		assertEquals(result1.getText(), expected1);
-		
-		WebElement errorMessage = driver.findElement(By.className("errorMessage"));
-		assertTrue(errorMessage.isDisplayed());		
+
+		WebElement errorMessage = driver.findElement(By.name("errorMessage"));
+		assertTrue(errorMessage.isDisplayed());
 	}
-	
-	@Test
+
+	@Test(priority=6)
 	public void signIn_Correctly_goToLandingPage() {
-		driver.get("http://localhost:8081/");
-		
+		driver.get("http://localhost:4200/");
+
 		WebElement username = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		WebElement submit = driver.findElement(By.name("submitLogIn"));
-		
+
 		username.sendKeys("superduper");
 		password.sendKeys("llllllll");
-		
-		submit.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.urlToBe("http://localhost:8081/login"));
-		
-		String currentUrl = driver.getCurrentUrl();
-		
-		assertEquals(currentUrl, "http://localhost:8081/login");
-		
-		WebElement result1 = driver.findElement(By.className("landingPageTitle"));
-		String expected1 = "Welcome to the Archive";
-		assertEquals(result1.getText(), expected1);	
-	}
-	
 
-	
+		submit.click();
+
+		new WebDriverWait(driver, Duration.ofSeconds(3))
+				.until(ExpectedConditions.urlToBe("http://localhost:4200/home"));
+
+		String currentUrl = driver.getCurrentUrl();
+
+		assertEquals(currentUrl, "http://localhost:4200/home");
+
+		WebElement result1 = driver.findElement(By.name("landingPageTitle"));
+		String expected1 = "Welcome to the Archive";
+		assertEquals(result1.getText(), expected1);
+	}
+
 }

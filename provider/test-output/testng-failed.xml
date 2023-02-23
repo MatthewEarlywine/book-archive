@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.archive.provider.Web_Tests.ListPageTests">
+      <class name="org.archive.provider.Web_Tests.SignInPageTests">
         <methods>
-          <include name="cleanse" />
-          <include name="setup" />
-          <include name="addBook_withGoodData" />
+
+          <include name="setup"/>
+          <include name="cleanse"/>
+          <include name="signIn_badUserName2"/>
         </methods>
-      </class> <!--
-      org.archive.provider.Web_Tests.ListPageTests -->
+      </class> <!-- org.archive.provider.Web_Tests.SignInPageTests -->
+
     </classes>
   </test> <!--
   Default test(failed) -->
