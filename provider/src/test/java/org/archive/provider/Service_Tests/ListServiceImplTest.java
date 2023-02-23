@@ -256,7 +256,6 @@ public class ListServiceImplTest extends AbstractTestNGSpringContextTests {
 		Book book = makeTestBook(3L);
 		when(mockDao.save(any())).thenReturn(book);
 		assertNotEquals(book, null);
-
 		Boolean isGone = service.deleteBookById(3L);
 		assertEquals(service.findById(3L), null);
 		assertTrue(isGone);

@@ -625,6 +625,5 @@ public class ListPageTests {
 		System.out.println(size2);
 		boolean truth = size1 > size2;
 		assertTrue(truth);
-
 	}
 }

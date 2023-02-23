@@ -70,9 +70,10 @@ public class ListServiceImpl implements ListService {
 
 		List<?> pList = query.getResultList();
 
-		if ((!pList.isEmpty()) && (bookRepo.findByTitleAndAuthorAndIllustrator(book.getTitle(), book.getAuthor(), book.getIllustrator()) != null)) {
+		if ((!pList.isEmpty()) && (bookRepo.findByTitleAndAuthorAndIllustrator(book.getTitle(), book.getAuthor(),
+				book.getIllustrator()) != null)) {
 			return true;
-		}	
+		}
 		return false;
 	}
 
