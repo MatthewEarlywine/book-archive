@@ -1,53 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-23T10:44:35 CST" name="Default suite" finished-at="2023-02-23T10:45:00 CST" duration-ms="24894">
+  <suite started-at="2023-02-23T16:20:16 CST" name="Default suite" finished-at="2023-02-23T16:20:21 CST" duration-ms="5770">
     <groups>
     </groups>
-    <test started-at="2023-02-23T10:44:35 CST" name="Default test" finished-at="2023-02-23T10:45:00 CST" duration-ms="24894">
-      <class name="org.archive.provider.Web_Tests.ListPageTests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:35 CST" name="setup" finished-at="2023-02-23T10:44:44 CST" duration-ms="8829" status="PASS">
+    <test started-at="2023-02-23T16:20:16 CST" name="Default test" finished-at="2023-02-23T16:20:21 CST" duration-ms="5770">
+      <class name="org.archive.provider.Web_Tests.SignInPageTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:16 CST" name="setup" finished-at="2023-02-23T16:20:18 CST" duration-ms="2838" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="goFromLandingPage_toBookListPage()[pri:1, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:44 CST" name="goFromLandingPage_toBookListPage" finished-at="2023-02-23T10:44:48 CST" duration-ms="3614" status="PASS">
+        <test-method signature="loadLogInPage()[pri:1, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:18 CST" name="loadLogInPage" finished-at="2023-02-23T16:20:19 CST" duration-ms="755" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- goFromLandingPage_toBookListPage -->
-        <test-method signature="addBook_withBadTitleData()[pri:2, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:48 CST" name="addBook_withBadTitleData" finished-at="2023-02-23T10:44:49 CST" duration-ms="1786" status="PASS">
+        </test-method> <!-- loadLogInPage -->
+        <test-method signature="signIn_badUserName1()[pri:2, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:19 CST" name="signIn_badUserName1" finished-at="2023-02-23T16:20:20 CST" duration-ms="408" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addBook_withBadTitleData -->
-        <test-method signature="addBook_withBadAuthorData()[pri:3, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:49 CST" name="addBook_withBadAuthorData" finished-at="2023-02-23T10:44:51 CST" duration-ms="1705" status="PASS">
+        </test-method> <!-- signIn_badUserName1 -->
+        <test-method signature="signIn_badUserName2()[pri:3, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:20 CST" name="signIn_badUserName2" finished-at="2023-02-23T16:20:20 CST" duration-ms="398" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addBook_withBadAuthorData -->
-        <test-method signature="addBook_withGoodData()[pri:4, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:51 CST" name="addBook_withGoodData" finished-at="2023-02-23T10:44:53 CST" duration-ms="1869" status="PASS">
+        </test-method> <!-- signIn_badUserName2 -->
+        <test-method signature="signIn_badPassword1()[pri:4, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:20 CST" name="signIn_badPassword1" finished-at="2023-02-23T16:20:20 CST" duration-ms="448" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addBook_withGoodData -->
-        <test-method signature="editBook_withBadTitleData()[pri:5, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:53 CST" name="editBook_withBadTitleData" finished-at="2023-02-23T10:44:55 CST" duration-ms="1709" status="PASS">
+        </test-method> <!-- signIn_badPassword1 -->
+        <test-method signature="signIn_badPassword2()[pri:5, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:20 CST" name="signIn_badPassword2" finished-at="2023-02-23T16:20:21 CST" duration-ms="415" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- editBook_withBadTitleData -->
-        <test-method signature="editBook_withBadAuthorData()[pri:6, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:55 CST" name="editBook_withBadAuthorData" finished-at="2023-02-23T10:44:57 CST" duration-ms="1852" status="PASS">
+        </test-method> <!-- signIn_badPassword2 -->
+        <test-method signature="signIn_Correctly_goToLandingPage()[pri:6, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:21 CST" name="signIn_Correctly_goToLandingPage" finished-at="2023-02-23T16:20:21 CST" duration-ms="332" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- editBook_withBadAuthorData -->
-        <test-method signature="editBook_withGoodData()[pri:7, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:57 CST" name="editBook_withGoodData" finished-at="2023-02-23T10:44:59 CST" duration-ms="2202" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- editBook_withGoodData -->
-        <test-method signature="deleteBook()[pri:8, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:59 CST" name="deleteBook" finished-at="2023-02-23T10:45:00 CST" duration-ms="978" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteBook -->
-        <test-method is-config="true" signature="cleanse()[pri:0, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:45:00 CST" name="cleanse" finished-at="2023-02-23T10:45:00 CST" duration-ms="234" status="PASS">
+        </test-method> <!-- signIn_Correctly_goToLandingPage -->
+        <test-method is-config="true" signature="cleanse()[pri:0, instance:org.archive.provider.Web_Tests.SignInPageTests@793be5ca]" started-at="2023-02-23T16:20:21 CST" name="cleanse" finished-at="2023-02-23T16:20:21 CST" duration-ms="106" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanse -->
-      </class> <!-- org.archive.provider.Web_Tests.ListPageTests -->
+      </class> <!-- org.archive.provider.Web_Tests.SignInPageTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
