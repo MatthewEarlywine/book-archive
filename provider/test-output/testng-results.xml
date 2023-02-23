@@ -2,48 +2,48 @@
 <testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-22T14:13:50 CST" name="Default suite" finished-at="2023-02-22T14:14:22 CST" duration-ms="32255">
+  <suite started-at="2023-02-23T10:44:35 CST" name="Default suite" finished-at="2023-02-23T10:45:00 CST" duration-ms="24894">
     <groups>
     </groups>
-    <test started-at="2023-02-22T14:13:50 CST" name="Default test" finished-at="2023-02-22T14:14:22 CST" duration-ms="32255">
+    <test started-at="2023-02-23T10:44:35 CST" name="Default test" finished-at="2023-02-23T10:45:00 CST" duration-ms="24894">
       <class name="org.archive.provider.Web_Tests.ListPageTests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:13:50 CST" name="setup" finished-at="2023-02-22T14:13:53 CST" duration-ms="3177" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:35 CST" name="setup" finished-at="2023-02-23T10:44:44 CST" duration-ms="8829" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="goFromLandingPage_toBookListPage()[pri:1, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:13:53 CST" name="goFromLandingPage_toBookListPage" finished-at="2023-02-22T14:14:02 CST" duration-ms="8401" status="PASS">
+        <test-method signature="goFromLandingPage_toBookListPage()[pri:1, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:44 CST" name="goFromLandingPage_toBookListPage" finished-at="2023-02-23T10:44:48 CST" duration-ms="3614" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- goFromLandingPage_toBookListPage -->
-        <test-method signature="addBook_withBadTitleData()[pri:2, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:02 CST" name="addBook_withBadTitleData" finished-at="2023-02-22T14:14:04 CST" duration-ms="2891" status="PASS">
+        <test-method signature="addBook_withBadTitleData()[pri:2, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:48 CST" name="addBook_withBadTitleData" finished-at="2023-02-23T10:44:49 CST" duration-ms="1786" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addBook_withBadTitleData -->
-        <test-method signature="addBook_withBadAuthorData()[pri:3, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:04 CST" name="addBook_withBadAuthorData" finished-at="2023-02-22T14:14:07 CST" duration-ms="2492" status="PASS">
+        <test-method signature="addBook_withBadAuthorData()[pri:3, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:49 CST" name="addBook_withBadAuthorData" finished-at="2023-02-23T10:44:51 CST" duration-ms="1705" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addBook_withBadAuthorData -->
-        <test-method signature="addBook_withGoodData()[pri:4, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:07 CST" name="addBook_withGoodData" finished-at="2023-02-22T14:14:10 CST" duration-ms="3286" status="PASS">
+        <test-method signature="addBook_withGoodData()[pri:4, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:51 CST" name="addBook_withGoodData" finished-at="2023-02-23T10:44:53 CST" duration-ms="1869" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addBook_withGoodData -->
-        <test-method signature="editBook_withBadTitleData()[pri:5, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:10 CST" name="editBook_withBadTitleData" finished-at="2023-02-22T14:14:14 CST" duration-ms="3554" status="PASS">
+        <test-method signature="editBook_withBadTitleData()[pri:5, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:53 CST" name="editBook_withBadTitleData" finished-at="2023-02-23T10:44:55 CST" duration-ms="1709" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editBook_withBadTitleData -->
-        <test-method signature="editBook_withBadAuthorData()[pri:6, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:14 CST" name="editBook_withBadAuthorData" finished-at="2023-02-22T14:14:17 CST" duration-ms="2744" status="PASS">
+        <test-method signature="editBook_withBadAuthorData()[pri:6, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:55 CST" name="editBook_withBadAuthorData" finished-at="2023-02-23T10:44:57 CST" duration-ms="1852" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editBook_withBadAuthorData -->
-        <test-method signature="editBook_withGoodData()[pri:7, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:17 CST" name="editBook_withGoodData" finished-at="2023-02-22T14:14:20 CST" duration-ms="3278" status="PASS">
+        <test-method signature="editBook_withGoodData()[pri:7, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:57 CST" name="editBook_withGoodData" finished-at="2023-02-23T10:44:59 CST" duration-ms="2202" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editBook_withGoodData -->
-        <test-method signature="deleteBook()[pri:8, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:20 CST" name="deleteBook" finished-at="2023-02-22T14:14:21 CST" duration-ms="1575" status="PASS">
+        <test-method signature="deleteBook()[pri:8, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:44:59 CST" name="deleteBook" finished-at="2023-02-23T10:45:00 CST" duration-ms="978" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteBook -->
-        <test-method is-config="true" signature="cleanse()[pri:0, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-22T14:14:21 CST" name="cleanse" finished-at="2023-02-22T14:14:22 CST" duration-ms="720" status="PASS">
+        <test-method is-config="true" signature="cleanse()[pri:0, instance:org.archive.provider.Web_Tests.ListPageTests@15aab8c6]" started-at="2023-02-23T10:45:00 CST" name="cleanse" finished-at="2023-02-23T10:45:00 CST" duration-ms="234" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanse -->
