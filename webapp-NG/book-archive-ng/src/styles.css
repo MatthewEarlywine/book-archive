@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+html, body {
+	background-image: url("./assets/wp6011714.webp");
+	background-color: pink;
+}
+
+h2{
+	color: rgb(202, 53, 199);
+}
+
+.belch {
+	background-color: orange;
+	margin-left: 500px;
+	margin-right: 500px;
+	text-align: center;
+}
+
+.cough {
+	margin-left: 750px;
+	margin-right: 750px;
+	text-align: center;
+}
+
+table{
+	background-color: pink;
+}
+
+th {
+	padding: 20px;	
+}
+
+td {
+	padding: 20px;
+}

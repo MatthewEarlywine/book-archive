@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ArchiveApplication<Archive>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.archive.provider.ArchiveApplication",
+            "projectName": "Archive",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

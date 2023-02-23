@@ -1,0 +1,58 @@
+<head>
+	<title>Book Archive</title>
+</head>
+
+<div ng-app="myApp" ng-controller="listController as ctrl">
+
+<div  class="belch">
+	
+	<h2 name="bookListTitle">List of Favorite Books</h2><BR>
+    <form [formGroup]="bookForm" 
+    (ngSubmit)="(addBook)">
+    <br><br><label name="titleLabel">Title:  <input type="text" name="titleInput" formControlName="title" required="required"/></label><br>
+    	<label name="seriesLabel">Series:  <input type="text" name="seriesInput" formControlName="series"/></label><br>
+        <label name="authorLabel">Author:  <input type="text" name="authorInput" formControlName="author" required="required"/></label><br>
+        <label name="illustratorLabel">Illustrator:  <input  type="text" name="illustratorInput" formControlName="illustrator" /></label><br>
+        <label name="genreLabel">Genre:  <input  type="text" name="genreInput" formControlName="genre" /></label><br>
+        
+        <br>
+        <button (click)="reset()">Clear</button><br>
+        <br><input *ngIf="bookForm.get('id')?.value === null" name="submitBookBtn" [disabled]="bookForm.invalid" type="submit" (click)='addBook()' value="Submit new book" />
+		<input *ngIf="bookForm.get('id')?.value"  type="submit" name="updateBookBtn" [disabled]="bookForm.invalid"  (click)='updateBook()' value="Update book" />
+
+        
+        <p *ngIf="isError" style="color: red">{{bookError}}</p>
+    </form><br>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+	    <table class="table mb-0" >
+	        <thead>
+		        <tr>
+                    <th name="columnId">Book Id</th>
+                    <th name="columnTitle">Title</th>
+                    <th name="columnSeries">Series</th>
+                    <th name="columnAuthor">Author</th>
+                    <th name="columnIllustrator">Illustrator</th>
+                    <th name="columnGenre">Genre</th>
+                </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let book of books; index as i" id="bookList">
+                            <td name="bookId" id="bookId-{{i}}">{{book.id}}</td>
+                            <td name="bookTitle" id="bookTitle-{{i}}">{{book.title}}</td>
+                            <td name="bookSeries" id="bookSeries-{{i}}">{{book.series}}</td>
+                            <td name="bookAuthor" id="bookAuthor-{{i}}">{{book.author}}</td>
+                            <td name="bookIllustrator" id="bookIllustrator-{{i}}">{{book.illustrator}}</td>
+                            <td name="bookGenre" id="bookGenre-{{i}}">{{book.genre}}</td>
+                            <td>
+                                <button type="button" name="editBtn" id="editBtn-{{i}}" (click)='editBook(book)' class="btn btn-success custom-width">Edit</button>
+                                <button type="button" name="deleteBtn" id="deleteBtn-{{i}}" (click)="deleteBook(book.id)" class="btn btn-danger custom-width">Remove</button>
+                            </td>
+                        </tr>
+                    		
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
