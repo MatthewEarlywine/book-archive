@@ -74,26 +74,4 @@ public class ListManagerImpl implements ListManager {
 		String requestUri = serviceBaseUrl + RESOURCE_URI;
 		restTemplate.delete(requestUri + "{id}", Long.toString(id));
 	}
-
-<<<<<<< HEAD
-	// public boolean doesBookExist(BookView book) {
-	// System.out.println(book.getTitle());
-	// Query query = sessionFactory.openSession().createQuery("FROM Book b WHERE
-	// b.title = :title and b.author = :author and b.illustrator = :illustrator");
-	// query.setParameter("title", book.getTitle());
-	// query.setParameter("author", book.getAuthor());
-	// query.setParameter("illustrator", book.getIllustrator());
-	// System.out.println(book.getTitle());
-	// List<?> pList = query.getResultList();
-	// System.out.println(pList.size());
-	// if (!pList.isEmpty()) {
-	// return true;
-	// }
-	// return false;
-	//
-	// }
-
-=======
-	
->>>>>>> refs/remotes/origin/dev4
 }
