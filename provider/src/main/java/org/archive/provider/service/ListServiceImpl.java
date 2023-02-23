@@ -52,10 +52,7 @@ public class ListServiceImpl implements ListService {
 	}
 
 	public Boolean deleteBookById(Long id) {
-
-	public boolean deleteBookById(Long id) {
 		bookRepo.deleteById(id);
-		return true;
 		return true;
 	}
 
@@ -88,6 +85,7 @@ public class ListServiceImpl implements ListService {
 				return true;
 			}
 		}
+		return false;
 	}
 
 }
